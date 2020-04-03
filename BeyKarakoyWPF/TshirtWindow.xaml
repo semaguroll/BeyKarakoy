@@ -1,0 +1,43 @@
+﻿<Window x:Class="BeyKarakoyWPF.TshirtWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeyKarakoyWPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="TshirtWindow" Height="1075.73" Width="800" Loaded="Window_Loaded">
+    <ScrollViewer VerticalScrollBarVisibility="Visible" >
+        <StackPanel>
+            <Grid Height="100" Width="792" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+                <Label VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120">
+                    <Label.Background>
+                        <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
+                    </Label.Background>
+                </Label>
+                <ComboBox x:Name="cmbUst" Background="Green" materialDesign:HintAssist.Hint="ÜST" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="White"  Grid.Column="2" MouseMove="cmbUst_MouseMove" SelectionChanged="cmbUst_SelectionChanged"/>
+
+
+                <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,231,36" BorderBrush="White" Grid.Column="2"/>
+                <ComboBox materialDesign:HintAssist.Hint="DİĞER" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Width="77" Margin="0,36,149,36" BorderBrush="White" Grid.Column="2"/>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Grid.Column="2" Margin="0,34">
+                    <materialDesign:PackIcon Kind="ShoppingBasket"/>
+                </Button>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" >
+                    <materialDesign:PackIcon Kind="Search"/>
+                </Button>
+                <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="594,36,0,32">
+                    <materialDesign:PackIcon Kind="Account"/>
+                </Button>
+                <Menu  Background="{x:Null}" Foreground="White" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="100" Margin="214,0,0,0">
+                    <MenuItem x:Name="ustMenu" Header="ÜST"/>
+                </Menu>
+            </Grid>
+            <Grid Height="100"/>
+            <Grid Height="703">
+                <Grid x:Name="prodGrid" HorizontalAlignment="Center" Width="628" />
+            </Grid>
+
+        </StackPanel>
+    </ScrollViewer>
+</Window>
