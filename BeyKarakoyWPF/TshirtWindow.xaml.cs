@@ -46,33 +46,33 @@ namespace BeyKarakoyWPF
         private void Create()
         {
 
-            List<Product> products = data.Products.OrderBy(x => x.Name).ToList();
-            List<Product> data1 = (from a in data.Products.ToList()
-                                   select new Product
-                                   {
-                                       Name = a.Name
+            //List<Product> products = data.Products.OrderBy(x => x.Name).ToList();
+            //List<Product> data1 = (from a in data.Products.ToList()
+            //                       select new Product
+            //                       {
+            //                           Name = a.Name
                                       
-                                   }).ToList();
+            //                       }).ToList();
 
 
 
-            prodGrid.Background = Brushes.Gray;
+            //prodGrid.Background = Brushes.Gray;
 
-            for (int i = 0; i < (10); i++)
-            {
-                Grid grd = new Grid();
-                grd.Width = 50;
-                grd.Height = 80;
-                grd.HorizontalAlignment = HorizontalAlignment.Left;
-                grd.VerticalAlignment = VerticalAlignment.Top;
-                Thickness margin = grd.Margin;
-                margin.Top += 90;
-                margin.Left += 60;
-                grd.Margin = margin;
-                grd.Background = Brushes.Blue;
-                prodGrid.Children.Add(grd);
+            //for (int i = 0; i < (10); i++)
+            //{
+            //    Grid grd = new Grid();
+            //    grd.Width = 50;
+            //    grd.Height = 80;
+            //    grd.HorizontalAlignment = HorizontalAlignment.Left;
+            //    grd.VerticalAlignment = VerticalAlignment.Top;
+            //    Thickness margin = grd.Margin;
+            //    margin.Top += 90;
+            //    margin.Left += 60;
+            //    grd.Margin = margin;
+            //    grd.Background = Brushes.Blue;
+            //    prodGrid.Children.Add(grd);
 
-            }
+            //}
 
             
             //var data1 = data.Database.SqlQuery<Product>("SELECT Name FROM Product").ToList();

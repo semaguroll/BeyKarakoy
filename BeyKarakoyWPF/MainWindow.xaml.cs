@@ -88,7 +88,7 @@ namespace BeyKarakoyWPF
 
 
                 //mainwindow.Content = "TshirtWindow.xaml";
-
+                this.Visibility = Visibility.Hidden;
                 Tshirt.Show();
 
 
