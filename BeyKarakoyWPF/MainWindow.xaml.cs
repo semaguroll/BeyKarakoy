@@ -22,11 +22,7 @@ namespace BeyKarakoyWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        //    public MainWindow()
-        //    {
-        //        InitializeComponent();
-        //    }   
-
+      
         WebOdevEntities data = new WebOdevEntities();
         // CollectionViewSource categoryViewSource;
         //CollectionViewSource productViewSource;
@@ -82,7 +78,7 @@ namespace BeyKarakoyWPF
             //MainWindow mainwindow = new MainWindow();
 
             //NavigationService nav = NavigationService.GetNavigationService(main);
-            //    var tsh = cmbUst.SelectedItem.ToString();
+            //var tsh = cmbUst.SelectedItem.ToString();
             if (cmbUst.SelectedItem.ToString() == "T-shirt")
             {
 
@@ -95,10 +91,7 @@ namespace BeyKarakoyWPF
                 //win.Content = Tshirt;
                 //win.Show();
 
-                //nav.Navigate(Tshirt);
-
-                //Tshirt.ShowDialog();
-                //main.Hide();
+                //nav.Navigate(Tshirt);               
 
             }
 

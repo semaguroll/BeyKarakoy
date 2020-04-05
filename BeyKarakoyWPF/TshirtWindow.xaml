@@ -9,7 +9,7 @@
         Title="TshirtWindow" Height="1075.73" Width="800" Loaded="Window_Loaded">
     <ScrollViewer VerticalScrollBarVisibility="Visible" >
         <StackPanel>
-            <Grid Height="100" Width="792" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Grid Height="100" Width="772" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
                 <Label VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120">
                     <Label.Background>
                         <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>

@@ -46,13 +46,15 @@ namespace BeyKarakoyWPF
         private void Create()
         {
 
-            //List<Product> products = data.Products.OrderBy(x => x.Name).ToList();
-            //List<Product> data1 = (from a in data.Products.ToList()
-            //                       select new Product
-            //                       {
-            //                           Name = a.Name
-                                      
-            //                       }).ToList();
+            List<Product> products = data.Products.OrderBy(x => x.Name).ToList();
+
+
+            List<Product> data1 = (from a in data.Products.ToList()
+                                   select new Product
+                                   {
+                                       Name = a.Name
+
+                                   }).ToList();
 
 
 
@@ -74,7 +76,7 @@ namespace BeyKarakoyWPF
 
             //}
 
-            
+
             //var data1 = data.Database.SqlQuery<Product>("SELECT Name FROM Product").ToList();
             //var data2 = data.Database.SqlQuery<Product>("SELECT Image FROM Product").ToList();
 
