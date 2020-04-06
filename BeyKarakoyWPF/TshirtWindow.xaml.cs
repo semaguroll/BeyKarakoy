@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace BeyKarakoyWPF
 {
@@ -20,107 +21,132 @@ namespace BeyKarakoyWPF
     /// </summary>
     public partial class TshirtWindow : Window
     {
-        WebOdevEntities data = new WebOdevEntities();
+        WebOdevEntities dataa = new WebOdevEntities();
         public TshirtWindow()
         {
             InitializeComponent();
-           
+
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            Load();
-        }
-
-        public void Load()
-        {
-
-            List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
-            ustMenu.ItemsSource = categories;
-            cmbUst.ItemsSource = categories;
            
+
+            List<Category> categories = dataa.Categories.OrderBy(x => x.Name).ToList();
+            cmbUst.ItemsSource = categories;
             Create();
-
-
         }
 
-        private void Create()
-        {
 
-            List<Product> products = data.Products.OrderBy(x => x.Name).ToList();
+      
 
-
-            List<Product> data1 = (from a in data.Products.ToList()
-                                   select new Product
-                                   {
-                                       Name = a.Name
-
-                                   }).ToList();
-
-
-
-            //prodGrid.Background = Brushes.Gray;
-
-            //for (int i = 0; i < (10); i++)
-            //{
-            //    Grid grd = new Grid();
-            //    grd.Width = 50;
-            //    grd.Height = 80;
-            //    grd.HorizontalAlignment = HorizontalAlignment.Left;
-            //    grd.VerticalAlignment = VerticalAlignment.Top;
-            //    Thickness margin = grd.Margin;
-            //    margin.Top += 90;
-            //    margin.Left += 60;
-            //    grd.Margin = margin;
-            //    grd.Background = Brushes.Blue;
-            //    prodGrid.Children.Add(grd);
-
-            //}
-
-
-            //var data1 = data.Database.SqlQuery<Product>("SELECT Name FROM Product").ToList();
-            //var data2 = data.Database.SqlQuery<Product>("SELECT Image FROM Product").ToList();
-
-            //for (int i = 0; i < 4 ; i++)
-            //{
-            //    for (int j = 0; j < 3; j++)
-            //    {
-            //        Grid grd = new Grid();
-            //        grd.Width = 30;
-            //        grd.Height = 50;
-
-            //        Grid grid = new Grid();
-            //        grid.Width = grid.Height = 10;
-            //        Label lbl = new Label();
-            //        lbl.Width = 10;
-            //        lbl.Height = 5;
-            //        grd.Background = Brushes.Black;
-
-            //        prodGrid.Children.Add(grd);
-            //        grid.Background = new ImageBrush(new BitmapImage(new Uri("data2")));
-            //        grid.Background = Brushes.Gray;
-            //        lbl.Content = products;
-            //        lbl.Foreground = Brushes.Red;
-            //        grd.Children.Add(grid);
-            //        grd.Children.Add(lbl);
-
-            //    }
-            //}
-        }
-
-        private void cmbUst_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
 
         private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
-        private void ustMenu_Click_1(object sender, MouseEventArgs e)
+      
+        private void btnSepet_Click(object sender, RoutedEventArgs e)
         {
-            Load();
-            
+            //Storyboard sb = Resources["OpenMenu"] as Storyboard;
+            //sb.Begin(slidegrd);
+            Storyboard sbrd = Resources["OpenM"] as Storyboard;
+            sbrd.Begin(slidegrid);
+
+        }
+
+        private void btnCross_Click(object sender, RoutedEventArgs e)
+        {
+            //Storyboard sb = Resources["CloseMenu"] as Storyboard;
+            //sb.Begin(slidegrd);
+            Storyboard sbrd = Resources["CloseM"] as Storyboard;
+            sbrd.Begin(slidegrid);
+        }
+
+        private void Create()
+        {
+           
+            List<Product> products = dataa.Products.OrderBy(x => x.Name).ToList();
+
+
+            List<Product> data1 = (from a in dataa.Products.ToList()
+                                   select new Product
+                                   {
+                                       Name = a.Name
+
+                                   }).ToList();
+            List<Product> data2 = (from a in dataa.Products.ToList()
+                                   select new Product
+                                   {
+                                       Image = a.Image
+
+                                   }).ToList();
+
+
+            Grid grd = new Grid();
+            grd.ShowGridLines = true;
+            grd.Width = 630;
+            grd.HorizontalAlignment = HorizontalAlignment.Left;
+            grd.VerticalAlignment = VerticalAlignment.Top;
+            ColumnDefinition col1 = new ColumnDefinition();
+            ColumnDefinition col2 = new ColumnDefinition();
+            ColumnDefinition col3 = new ColumnDefinition();
+            RowDefinition row1 = new RowDefinition();
+            RowDefinition row2 = new RowDefinition();
+            RowDefinition row3 = new RowDefinition();
+            RowDefinition row4 = new RowDefinition();
+            grd.ColumnDefinitions.Add(col1);
+            grd.ColumnDefinitions.Add(col2);
+            grd.ColumnDefinitions.Add(col3);
+            row1.Height = new GridLength(300);
+            row2.Height = new GridLength(300);
+            row3.Height = new GridLength(300);
+            row4.Height = new GridLength(300);
+            grd.RowDefinitions.Add(row1);
+            grd.RowDefinitions.Add(row2);
+            grd.RowDefinitions.Add(row3);
+            grd.RowDefinitions.Add(row4);
+            prodPanel.Children.Add(grd);
+
+            for (int i = 0; i <= 3; i++)
+            {
+                for (int j = 0; j <= 4; j++)
+                {
+                    //BitmapImage bitmap = new BitmapImage();
+                    //Image img = new Image();
+                    //bitmap.BeginInit();
+                    //bitmap.UriSource = new Uri("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+                    //bitmap.EndInit();
+                    //img.Source = bitmap;
+                    Label lbl = new Label();
+                    lbl.Width = 150;
+                    lbl.Height = 200;
+                    lbl.Background = Brushes.Red;
+                    //lbl.Background = new ImageBrush(data2);
+                    Grid.SetRow(lbl, i);
+                    Grid.SetColumn(lbl, j);
+                    grd.Children.Add(lbl);
+                    lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
+                    lbl.VerticalAlignment = VerticalAlignment.Top;
+
+
+                    Label label = new Label();
+                    label.Width = 200;
+                    label.Height = 50;
+                    label.Background = Brushes.Gray;
+                    label.Content = data1;
+                    Grid.SetRow(label, i);
+                    Grid.SetColumn(label, j);
+                    grd.Children.Add(label);
+                    label.HorizontalContentAlignment = HorizontalAlignment.Center;
+                    label.VerticalAlignment = VerticalAlignment.Bottom;
+                    Thickness margin = label.Margin;
+                    margin.Bottom = 20;
+                    label.Margin = margin;
+                }
+            }
+
+
         }
     }
 }

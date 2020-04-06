@@ -8,43 +8,90 @@
         mc:Ignorable="d" Height="2058.546" Width="800" Loaded="MainWindow_Loaded" ResizeMode="NoResize">
     <Window.Resources>
         <CollectionViewSource x:Key="categoryViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Category}, CreateList=True}"/>
-    </Window.Resources>
-    <ScrollViewer VerticalScrollBarVisibility="Visible" >
-        <StackPanel Margin="0,0,0,1" DataContext="{StaticResource categoryViewSource}" >
-       
-        <StackPanel.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform AngleX="-0.059"/>
-                <RotateTransform/>
-                <TranslateTransform X="-0.999"/>
-            </TransformGroup>
-        </StackPanel.RenderTransform>
 
-            <Grid HorizontalAlignment="Left" Height="494" VerticalAlignment="Top" Width="776">
+
+        <Storyboard x:Key="CloseMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,0,-300,-393" DecelerationRatio="0.9" Duration="0:0:0.5"/>
+        </Storyboard>
+
+
+        <Storyboard x:Key="OpenMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,-300,-393" To="0,0,0,0" DecelerationRatio="0.9" Duration="0:0:0.5"/>
+        </Storyboard>
+        <Storyboard x:Key="CloseM">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-300,0,0,0" To="0,0,0,0" DecelerationRatio="0.9" Duration="0:0:0.5"/>
+        </Storyboard>
+
+
+        <Storyboard x:Key="OpenM">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="-300,0,0,0" DecelerationRatio="0.9" Duration="0:0:0.5"/>
+        </Storyboard>
+
+    </Window.Resources>
+    <ScrollViewer>
+        <StackPanel  HorizontalAlignment="Left" >
+
+
+
+
+
+            <Grid Name="slidegrid" HorizontalAlignment="Left" Height="494" VerticalAlignment="Top"  Width="776">
 
                 <Grid.Background>
                     <ImageBrush ImageSource="mp1.jpg" Stretch="Uniform"/>
                 </Grid.Background>
-                <Grid Height="100" Width="776" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52">
+                <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Margin="0,0,-300,10" Background="Gray">
+
+                    <Grid >
+
+
+                        <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click">
+                            <materialDesign:PackIcon Kind="Clear"/>
+                        </Button>
+                        <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,73,0"/>
+                        <Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" Margin="0,133,0,305"></Label>
+                    </Grid>
+
+
+
+                </Grid>
+                <Grid Height="100" Width="776" HorizontalAlignment="Left" VerticalAlignment="Top" >
 
                     <Label VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120">
                         <Label.Background>
                             <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
                         </Label.Background>
                     </Label>
-                    <ComboBox x:Name="cmbUst" Background="Green" materialDesign:HintAssist.Hint="ÜST" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="White"  Grid.Column="2" MouseMove="cmbUst_MouseMove" SelectionChanged="cmbUst_SelectionChanged"/>
+                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="White" SelectionChanged="cmbUst_SelectionChanged"/>
 
 
                     <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,231,36" BorderBrush="White" Grid.Column="2"/>
                     <ComboBox materialDesign:HintAssist.Hint="DİĞER" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Width="77" Margin="0,36,149,36" BorderBrush="White" Grid.Column="2"/>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Grid.Column="2" Margin="0,34">
+
+                    <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="48" Margin="718,36,0,0" Click="btnSepet_Click">
                         <materialDesign:PackIcon Kind="ShoppingBasket"/>
+                        <!--<Button.Triggers>
+
+                        -->
+                        <!-- Animates the width of the first button 
+               from 200 to 300. -->
+                        <!--
+                        <EventTrigger RoutedEvent="Button.Click">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="stackpnl"
+                  Storyboard.TargetProperty="Width"
+                  From="776" To="476" Duration="0:0:0.5" />
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </Button.Triggers>-->
+
                     </Button>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" >
+                    <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,36,58,32" Click="btnSearch_Click" >
                         <materialDesign:PackIcon Kind="Search"/>
                     </Button>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="594,36,0,32">
+                    <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="632,36,0,32">
                         <materialDesign:PackIcon Kind="Account"/>
                     </Button>
                 </Grid>
@@ -61,10 +108,7 @@
             <Grid Height="800"/>
 
             <Grid Height="100">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="22*"/>
-                </Grid.RowDefinitions>
+
                 <Label Content="Kemankeş Mahallesi Mumhane Caddesi No:54/1 Karaköy - İstanbul - Türkiye" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="160,8,159,0"  Width="424" Height="27" Grid.Row="1" />
 
                 <TextBlock x:Name="link" HorizontalAlignment="Center"  Margin="309,46,308,0" VerticalAlignment="Top"  Width="126" Height="24" Grid.Row="1"><Hyperlink Foreground="Chocolate" NavigateUri="mailto:info@beykarakoy.com"><Run Text="info@beykarakoy.com"/></Hyperlink></TextBlock>
@@ -74,18 +118,42 @@
                 <TextBox HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="E-posta listemize üye olun." VerticalAlignment="Center" Width="280" Margin="196,48,267,46" TextDecorations="{x:Null}" FontFamily="Gabriola" FontSize="14" CaretBrush="Black"/>
                 <Button x:Name="btnAboneOl" Content="Abone Ol" HorizontalAlignment="Left" Margin="481,48,0,0" VerticalAlignment="Top" Width="74" Height="30" Background="Black" BorderBrush="Black" FontSize="10" FontFamily="Segoe UI Light"/>
             </Grid>
+            <Grid Height="204" Width="772">
+                <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,10,0,0" Width="87"/>
+                <Button Content="Hakkımızda" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="33,54,0,0" VerticalAlignment="Top" Width="96" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Değişim Koşulları" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="33,80,0,0" VerticalAlignment="Top" Width="128" FontFamily="Sitka Heading" Height="31"/>
+                <Button Content="Gizlilik" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="20,116,0,0" VerticalAlignment="Top" Width="96" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Terms and Conditions" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="33,142,0,0" VerticalAlignment="Top" Width="144" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Blog" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="20,168,0,0" VerticalAlignment="Top" Width="83" FontFamily="Sitka Heading" Height="26" RenderTransformOrigin="0.5,0.5"/>
+
+                <Button Content="Facebook" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="302,54,0,0" VerticalAlignment="Top" Width="87" FontFamily="Sitka Heading" Height="31"></Button>
+                <Button Content=  "Twitter" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="293,90,0,0" VerticalAlignment="Top" Width="96" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Instagram " FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="275,116,0,0" VerticalAlignment="Top" Width="144" FontFamily="Sitka Heading" Height="25"/>
+                <Button Content="Google Plus+" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="293,142,0,0" VerticalAlignment="Top" Width="110" FontFamily="Sitka Heading" Height="26" RenderTransformOrigin="0.5,0.5"/>
+                <Label Content="© 2020, beykarakoy Shopify tarafından desteklenir" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="461,82,0,0" Height="31" Width="284"/>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="545,139,0,0"/>
+
+
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,142,0,0">
+                    <materialDesign:PackIcon Kind="GooglePlus"/>
+                </Label>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,118,0,0">
+                    <materialDesign:PackIcon Kind="TwitterBox"/>
+                </Label>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,89,0,0">
+                    <materialDesign:PackIcon Kind="Twitter"/>
+                </Label>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,54,0,0">
+                    <materialDesign:PackIcon Kind="Facebook"/>
+                </Label>
+
+
+            </Grid>
 
 
 
-    
-       
 
-
-
-
-
-
-    </StackPanel>
+        </StackPanel>
 
     </ScrollViewer>
 

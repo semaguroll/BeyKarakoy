@@ -23,7 +23,11 @@ namespace BeyKarakoyWPF
         public string Info { get; set; }
         public string Price { get; set; }
         public string Image { get; set; }
-    
+         
+        public override string ToString()
+        {
+            return Name;
+        }
         public virtual Category Category { get; set; }
     }
 }

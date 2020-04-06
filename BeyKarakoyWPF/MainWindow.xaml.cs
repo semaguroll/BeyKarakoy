@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EO.Internal;
+using System.Windows.Media.Animation;
 
 namespace BeyKarakoyWPF
 {
@@ -42,31 +43,12 @@ namespace BeyKarakoyWPF
 
             List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
             cmbUst.ItemsSource = categories;
-
-
-            //var categories = context.Categories.ToList();
-
-            //for (int i = 0; i < categories.Count; i++)
-            //{
-            //    cmbUst.Items.Add(categories);
-            //}
-
-
-
-            //var data1 = context.GetData<Category>("SELECT * FROM Categories");
-            //cmbUst.ItemsSource = data1;
-
-            //System.Windows.Data.CollectionViewSource categoryViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("categoryViewSource")));
-            //Load data by setting the CollectionViewSource.Source property:
-            // categoryViewSource.Source = [generic data source]
+            cmbUst.Foreground = Brushes.Black;
+        
         }
       
      
-        private void cmbUst_MouseMove(object sender, MouseEventArgs e)
-        {
-            //List<Category> ust = context.Categories.ToList();
-            //cmbUst.ItemsSource = ust;
-        }
+     
 
         private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -98,15 +80,30 @@ namespace BeyKarakoyWPF
         }
 
       
-        private void ustMenu_Click_1(object sender, RoutedEventArgs e)
+       
+        private void btnSepet_Click(object sender, RoutedEventArgs e)
         {
-                       
-            TshirtWindow tshirt = new TshirtWindow();
-            //var selectedItem = getSelectedItem(ustMenu.ContextMenu.Items);
-            //if (ustMenu.Items.IndexOf.)
-            //{
-            //    tshirt.Show();
-            //}
+            //Storyboard sb = Resources["OpenMenu"] as Storyboard;
+            //sb.Begin(slidegrd);
+            Storyboard sbrd = Resources["OpenM"] as Storyboard;
+            sbrd.Begin(slidegrid);
+            
+        }
+
+        private void btnCross_Click(object sender, RoutedEventArgs e)
+        {
+            //Storyboard sb = Resources["CloseMenu"] as Storyboard;
+            //sb.Begin(slidegrd);
+            Storyboard sbrd = Resources["CloseM"] as Storyboard;
+            sbrd.Begin(slidegrid);
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            SearchWindow search = new SearchWindow();
+            this.Visibility = Visibility.Hidden;
+            search.Show();
+
         }
     }
 }
