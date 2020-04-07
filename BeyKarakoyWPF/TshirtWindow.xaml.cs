@@ -148,5 +148,27 @@ namespace BeyKarakoyWPF
 
 
         }
+
+        private void btnLogo_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainWindow main = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            main.Show();
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            SearchWindow search = new SearchWindow();
+            this.Visibility = Visibility.Hidden;
+            search.Show();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            this.Visibility = Visibility.Hidden;
+            login.Show();
+        }
     }
 }

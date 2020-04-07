@@ -52,35 +52,35 @@ namespace BeyKarakoyWPF
 
         private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //NavigationWindow win = new NavigationWindow();
-            
-
 
             TshirtWindow Tshirt = new TshirtWindow();
+
+            if (cmbUst.SelectedItem.ToString() == "T-shirt")
+            {
+                this.Visibility = Visibility.Hidden;
+                Tshirt.Show();
+            }
+
+
+            //NavigationWindow win = new NavigationWindow();
+
             //MainWindow mainwindow = new MainWindow();
 
             //NavigationService nav = NavigationService.GetNavigationService(main);
             //var tsh = cmbUst.SelectedItem.ToString();
-            if (cmbUst.SelectedItem.ToString() == "T-shirt")
-            {
 
 
-                //mainwindow.Content = "TshirtWindow.xaml";
-                this.Visibility = Visibility.Hidden;
-                Tshirt.Show();
+            //mainwindow.Content = "TshirtWindow.xaml";
+            //win.Content = Tshirt;
+            //win.Show();
 
+            //nav.Navigate(Tshirt);               
 
-                //win.Content = Tshirt;
-                //win.Show();
-
-                //nav.Navigate(Tshirt);               
-
-            }
 
         }
 
-      
-       
+
+
         private void btnSepet_Click(object sender, RoutedEventArgs e)
         {
             //Storyboard sb = Resources["OpenMenu"] as Storyboard;
@@ -104,6 +104,21 @@ namespace BeyKarakoyWPF
             this.Visibility = Visibility.Hidden;
             search.Show();
 
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            this.Visibility = Visibility.Hidden;
+            login.Show();
+        }
+
+        private void btnLogo_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainWindow main = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            main.Show();
         }
     }
 }

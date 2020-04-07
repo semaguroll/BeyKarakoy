@@ -6,16 +6,12 @@
         xmlns:local="clr-namespace:BeyKarakoyWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         mc:Ignorable="d"
-        Title="Login" Height="1007.613" Width="800">
+        Title="Login" Height="1007.613" Width="800" Loaded="Window_Loaded">
     <ScrollViewer>
         <StackPanel>
-            <Grid Height="518">
+            <Grid Name="slidegrid" Height="518">
                 <Grid  Height="100" Width="772" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
-                    <Label VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120">
-                        <Label.Background>
-                            <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
-                        </Label.Background>
-                    </Label>
+
                     <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Height="500" Margin="0,0,-300,10" Background="Gray">
 
                         <Grid >
@@ -31,7 +27,7 @@
 
 
                     </Grid>
-                    <ComboBox x:Name="cmbUst" Background="{x:Null}" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="Black"  SelectionChanged="cmbUst_SelectionChanged"/>
+                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="Black" SelectionChanged="cmbUst_SelectionChanged"/>
 
 
                     <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,231,36" BorderBrush="Black" Grid.Column="2"/>
@@ -40,23 +36,30 @@
                     <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Grid.Column="2" Margin="0,34" Click="btnSepet_Click">
                         <materialDesign:PackIcon Kind="ShoppingBasket"/>
                     </Button>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" >
+                    <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" Click="btnSearch_Click" >
                         <materialDesign:PackIcon Kind="Search"/>
                     </Button>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="48" Margin="623,0,0,34">
+                    <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="48" Margin="623,0,0,34" Click="btnLogin_Click">
                         <materialDesign:PackIcon Kind="Account"/>
+                    </Button>
+                    <Button Name="btnLogo" BorderBrush="{x:Null}" VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120" Click="btnLogo_Click" >
+                        <Button.Background>
+                            <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
+                        </Button.Background>                        
                     </Button>
                 </Grid>
                 <Grid HorizontalAlignment="Left" Height="100" Margin="0,100,0,0" VerticalAlignment="Top" Width="772">
                     <Label Content="Giriş" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" ></Label>
+                    <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="345,66,0,0" Width="87"/>
+
                 </Grid>
                 <Grid HorizontalAlignment="Center" Height="313" Width="340" Margin="218,202,217,3">
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,75,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,121,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
-                    <Button Content="GİRİŞ" Background="Black" HorizontalAlignment="Left" Margin="74,168,0,0" VerticalAlignment="Top" Width="173" Height="29"/>
-                    <Button Content="Yeni Üyelik" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,214,125,71" FontFamily="Sitka Heading"/>
-                    <Button Content="Ana Sayfa" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,242,125,43" FontFamily="Sitka Heading"/>
-                    <Button Content="Şifreyi Unutum!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="131" Height="28" Margin="93,275,116,10" FontFamily="Sitka Heading" RenderTransformOrigin="0.5,2.071"/>
+                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,32,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
+                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,70,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
+                    <Button Content="GİRİŞ" Background="Black" BorderBrush="Black" HorizontalAlignment="Left" Margin="74,123,0,0" VerticalAlignment="Top" Width="173" Height="29"/>
+                    <Button Name="btnNewUser" Content="Yeni Üyelik" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,171,125,114" FontFamily="Sitka Heading" Click="btnNewUser_Click" />
+                    <Button Name="btnMainPage" Content="Ana Sayfa" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,199,125,86" FontFamily="Sitka Heading" Click="btnMainPage_Click"/>
+                    <Button  Content="Şifreyi Unutum!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="131" Height="28" Margin="94,227,115,58" FontFamily="Sitka Heading" RenderTransformOrigin="0.5,2.071"/>
                 </Grid>
             </Grid>
             <Grid Height="124" Background="#FFDEDEDE">

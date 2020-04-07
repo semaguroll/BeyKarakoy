@@ -57,11 +57,11 @@
                 </Grid>
                 <Grid Height="100" Width="776" HorizontalAlignment="Left" VerticalAlignment="Top" >
 
-                    <Label VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120">
-                        <Label.Background>
+                    <Button Name="btnLogo" BorderBrush="{x:Null}" VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120" Click="btnLogo_Click" >
+                        <Button.Background>
                             <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
-                        </Label.Background>
-                    </Label>
+                        </Button.Background>
+                    </Button>
                     <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="White" SelectionChanged="cmbUst_SelectionChanged"/>
 
 
@@ -91,19 +91,21 @@
                     <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,36,58,32" Click="btnSearch_Click" >
                         <materialDesign:PackIcon Kind="Search"/>
                     </Button>
-                    <Button Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="632,36,0,32">
+                    <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="632,36,0,32" Click="btnLogin_Click">
                         <materialDesign:PackIcon Kind="Account"/>
                     </Button>
                 </Grid>
                 <Grid  Width="300" HorizontalAlignment="Center" Margin="225,0">
                     <Label Content="NEW COLLECTION" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="95,0,97,260" FontSize="12" Foreground="White" RenderTransformOrigin="-0.197,0.404" Width="108"/>
-                    <Button x:Name="btnShopNow" Background="White" BorderThickness="0" Content="SHOP NOW ➔" Foreground="Black" HorizontalAlignment="Center" Margin="103,0,108,213" Width="89" FontFamily="Microsoft JhengHei Light" FontSize="8" Height="34" RenderTransformOrigin="0.5,0.5" AutomationProperties.Name="btnShopNow" VerticalAlignment="Bottom"/>
+                    <Button x:Name="btnShopNow" Background="White" BorderBrush="White" BorderThickness="0" Content="SHOP NOW ➔" Foreground="Black" HorizontalAlignment="Center" Margin="103,0,108,213" Width="89" FontFamily="Microsoft JhengHei Light" FontSize="8" Height="34" RenderTransformOrigin="0.5,0.5" AutomationProperties.Name="btnShopNow" VerticalAlignment="Bottom"/>
                 </Grid>
 
 
             </Grid>
             <Grid Height="89">
                 <Label Content="Öne Çıkan Ürünler" Foreground="Black" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="20" FontFamily="Trebuchet MS" Margin="262,28,291,24" Width="190"/>
+                <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="324,62,0,0" Width="87"/>
+
             </Grid>
             <Grid Height="800"/>
 

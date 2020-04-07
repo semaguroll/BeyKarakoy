@@ -22,11 +22,11 @@
         <StackPanel Name="slidegrid">
 
             <Grid  Height="100" Width="772" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
-                <Label VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120">
-                    <Label.Background>
+                <Button Name="btnLogo" BorderBrush="{x:Null}" VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120" Click="btnLogo_Click" >
+                    <Button.Background>
                         <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
-                    </Label.Background>
-                </Label>
+                    </Button.Background>
+                </Button>
                 <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Height="500" Margin="0,0,-300,10" Background="Gray">
 
                     <Grid >
@@ -42,7 +42,7 @@
 
 
                 </Grid>
-                <ComboBox x:Name="cmbUst" Background="{x:Null}" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="Black"  SelectionChanged="cmbUst_SelectionChanged"/>
+                <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="Black" SelectionChanged="cmbUst_SelectionChanged"/>
 
 
                 <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,231,36" BorderBrush="Black" Grid.Column="2"/>
@@ -51,16 +51,18 @@
                 <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Grid.Column="2" Margin="0,34" Click="btnSepet_Click">
                     <materialDesign:PackIcon Kind="ShoppingBasket"/>
                 </Button>
-                <Button Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" >
+                <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" Click="btnSearch_Click" >
                     <materialDesign:PackIcon Kind="Search"/>
                 </Button>
-                <Button Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="48" Margin="623,0,0,34">
+                <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="48" Margin="623,0,0,34" Click="btnLogin_Click">
                     <materialDesign:PackIcon Kind="Account"/>
                 </Button>
-               
+
             </Grid>
             <Grid Height="100">
                 <Label Content="T-shirt" HorizontalAlignment="Center"  FontSize="17" Width="64" Height="30" Margin="356,24,355,46"></Label>
+                <Label Content="_________________________________________" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,63,0,0" Width="87" Height="27"/>
+
             </Grid>
             <Grid Height="1200">
                 <StackPanel x:Name="prodPanel" Orientation="Horizontal" HorizontalAlignment="Center" Width="630" Height="1200" Margin="74,0,69,0" >
