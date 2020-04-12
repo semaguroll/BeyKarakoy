@@ -29,7 +29,7 @@ namespace BeyKarakoyWPF
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-           
+
 
             List<Category> categories = dataa.Categories.OrderBy(x => x.Name).ToList();
             cmbUst.ItemsSource = categories;
@@ -37,7 +37,7 @@ namespace BeyKarakoyWPF
         }
 
 
-      
+
 
 
         private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -45,7 +45,7 @@ namespace BeyKarakoyWPF
 
         }
 
-      
+
         private void btnSepet_Click(object sender, RoutedEventArgs e)
         {
             //Storyboard sb = Resources["OpenMenu"] as Storyboard;
@@ -65,7 +65,7 @@ namespace BeyKarakoyWPF
 
         private void Create()
         {
-           
+
             List<Product> products = dataa.Products.OrderBy(x => x.Name).ToList();
 
 
@@ -108,44 +108,52 @@ namespace BeyKarakoyWPF
             grd.RowDefinitions.Add(row4);
             prodPanel.Children.Add(grd);
 
-            for (int i = 0; i <= 3; i++)
-            {
-                for (int j = 0; j <= 4; j++)
+
+                for (int i = 0; i <= 3; i++)
                 {
-                    //BitmapImage bitmap = new BitmapImage();
-                    //Image img = new Image();
-                    //bitmap.BeginInit();
-                    //bitmap.UriSource = new Uri("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
-                    //bitmap.EndInit();
-                    //img.Source = bitmap;
-                    Label lbl = new Label();
-                    lbl.Width = 150;
-                    lbl.Height = 200;
-                    lbl.Background = Brushes.Red;
-                    //lbl.Background = new ImageBrush(data2);
-                    Grid.SetRow(lbl, i);
-                    Grid.SetColumn(lbl, j);
-                    grd.Children.Add(lbl);
-                    lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
-                    lbl.VerticalAlignment = VerticalAlignment.Top;
-
-
-                    Label label = new Label();
-                    label.Width = 200;
+                    for (int j = 0; j <= 4; j++)
+                    {
+                        //BitmapImage bitmap = new BitmapImage();
+                        //Image img = new Image();
+                        //bitmap.BeginInit();
+                        //bitmap.UriSource = new Uri("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+                        //bitmap.EndInit();
+                        //img.Source = bitmap;
+                        Label lbl = new Label();
+                        lbl.Width = 150;
+                        lbl.Height = 200;
+                        lbl.Background = Brushes.Black;
+                        //lbl.Background = new ImageBrush(data2);
+                        Grid.SetRow(lbl, i);
+                        Grid.SetColumn(lbl, j);
+                        grd.Children.Add(lbl);
+                        lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        lbl.VerticalAlignment = VerticalAlignment.Top;
+                      
+                        Label label = new Label();
+                       // label.Content = item;
+                        label.Width = 200;
                     label.Height = 50;
-                    label.Background = Brushes.Gray;
-                    label.Content = data1;
-                    Grid.SetRow(label, i);
-                    Grid.SetColumn(label, j);
-                    grd.Children.Add(label);
-                    label.HorizontalContentAlignment = HorizontalAlignment.Center;
-                    label.VerticalAlignment = VerticalAlignment.Bottom;
-                    Thickness margin = label.Margin;
-                    margin.Bottom = 20;
-                    label.Margin = margin;
-                }
-            }
+                        label.Background = Brushes.Gray;
+                        label.Content = data1;
+                       
+      
+                        Grid.SetRow(label, i);
+                        Grid.SetColumn(label, j);
+                        grd.Children.Add(label);
+                        label.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        label.VerticalAlignment = VerticalAlignment.Bottom;
+                        Thickness margin = label.Margin;
+                        margin.Bottom = 20;
+                        label.Margin = margin;
 
+
+
+
+                    }
+                }
+
+            
 
         }
 

@@ -21,7 +21,7 @@
     <ScrollViewer VerticalScrollBarVisibility="Visible" >
         <StackPanel Name="slidegrid">
 
-            <Grid  Height="100" Width="772" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+            <Grid  Height="100" Width="772" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
                 <Button Name="btnLogo" BorderBrush="{x:Null}" VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120" Click="btnLogo_Click" >
                     <Button.Background>
                         <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
@@ -72,7 +72,7 @@
             <Grid Height="124" Background="#FFDEDEDE">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Width="384"  Height="50" Background="White"/>
                 <TextBox HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="E-posta listemize üye olun." VerticalAlignment="Center" Width="280" Margin="196,48,267,46" TextDecorations="{x:Null}" FontFamily="Gabriola" FontSize="14" CaretBrush="Black"/>
-                <Button x:Name="btnAboneOl" Content="Abone Ol" HorizontalAlignment="Left" Margin="481,48,0,0" VerticalAlignment="Top" Width="74" Height="30" Background="Black" BorderBrush="Black" FontSize="10" FontFamily="Segoe UI Light"/>
+                <Button x:Name="btnAboneOl" Content="Abone Ol" HorizontalAlignment="Center" Margin="506,48,195,0" VerticalAlignment="Top" Width="74" Height="30" Background="Black" BorderBrush="Black" FontSize="10" FontFamily="Segoe UI Light"/>
             </Grid>
             <Grid Height="204" Width="772">
                 <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,10,0,0" Width="87"/>

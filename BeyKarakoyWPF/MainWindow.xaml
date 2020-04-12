@@ -62,7 +62,7 @@
                             <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="White" SelectionChanged="cmbUst_SelectionChanged"/>
+                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="White" SelectionChanged="cmbUst_SelectionChanged" MouseEnter="cmbUst_MouseEnter" MouseLeave="cmbUst_MouseLeave"/>
 
 
                     <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,231,36" BorderBrush="White" Grid.Column="2"/>

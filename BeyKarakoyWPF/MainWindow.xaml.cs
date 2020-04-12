@@ -43,7 +43,7 @@ namespace BeyKarakoyWPF
 
             List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
             cmbUst.ItemsSource = categories;
-            cmbUst.Foreground = Brushes.Black;
+            
         
         }
       
@@ -119,6 +119,16 @@ namespace BeyKarakoyWPF
             MainWindow main = new MainWindow();
             this.Visibility = Visibility.Hidden;
             main.Show();
+        }
+
+        private void cmbUst_MouseEnter(object sender, MouseEventArgs e)
+        {
+            cmbUst.Foreground = Brushes.Black;
+        }
+
+        private void cmbUst_MouseLeave(object sender, MouseEventArgs e)
+        {
+            cmbUst.Foreground = Brushes.White;
         }
     }
 }
