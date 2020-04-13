@@ -107,7 +107,10 @@
                 <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="324,62,0,0" Width="87"/>
 
             </Grid>
-            <Grid Height="800"/>
+            <Grid Height="900">
+                <StackPanel x:Name="prodPanell" HorizontalAlignment="Center" Orientation="Horizontal" Height="900" Width="630" />
+
+            </Grid>
 
             <Grid Height="100">
 

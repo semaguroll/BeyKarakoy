@@ -67,6 +67,7 @@ namespace BeyKarakoyWPF
         private void Create()
         {
 
+
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("https://localhost:44331/");
 
@@ -96,7 +97,7 @@ namespace BeyKarakoyWPF
 
 
                 Grid grd = new Grid();
-                grd.ShowGridLines = true;
+                grd.ShowGridLines = false;
                 grd.Width = 630;
                 grd.HorizontalAlignment = HorizontalAlignment.Left;
                 grd.VerticalAlignment = VerticalAlignment.Top;
@@ -131,57 +132,79 @@ namespace BeyKarakoyWPF
                 //foreach (var item in products)
                 //{
 
-                    for (int i = 0; i < xi; i++)
+                for (int i = 0; i < xi; i++)
+                {
+                    for (int j = 0; j < 3; j++)
                     {
-                        for (int j = 0; j < 3; j++)
-                        {
                         var item = products.ToList()[yi];
                         //var itemm = data2[yi];
                         yi++;
 
 
+                        Image img = new Image();
 
-                            BitmapImage bitmap = new BitmapImage();
-                            Image img = new Image();
-                            bitmap.BeginInit();
-                            bitmap.UriSource = new Uri("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
-                            bitmap.EndInit();
-                            img.Source = bitmap;
-                            Label lbl = new Label();
-                            lbl.Width = 150;
-                            lbl.Height = 200;
-                            lbl.Background = Brushes.Black;
-                            //lbl.Background = new ImageBrush(itemm.Image);
-                            Grid.SetRow(lbl, i);
-                            Grid.SetColumn(lbl, j);
-                            grd.Children.Add(lbl);
-                            lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
-                            lbl.VerticalAlignment = VerticalAlignment.Top;
+                        Uri uri = new Uri(item.Image, UriKind.Absolute);
+                        ImageSource imgSource = new BitmapImage(uri);
 
-                            Label label = new Label();
-                            // label.Content = item;
-                            label.Width = 200;
-                            label.Height = 50;
-                            label.Background = Brushes.Gray;
-                            label.Content = item.Name;
+                        //BitmapImage bitmap = new BitmapImage();
 
+                        //bitmap.BeginInit();
+                        //bitmap.UriSource = new Uri(item.Image, UriKind.Absolute);
+                        //bitmap.EndInit();
+                        //img.Source = bitmap;
+                        img.Source = imgSource;
+                        Label lbl = new Label();
+                        lbl.Width = 150;
+                        lbl.Height = 200;
+                        //lbl.Background = Brushes.Black;
+                        lbl.Background = new ImageBrush(img.Source);
+                        Grid.SetRow(lbl, i);
+                        Grid.SetColumn(lbl, j);
+                        grd.Children.Add(lbl);
+                        lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        lbl.VerticalAlignment = VerticalAlignment.Top;
+                        
 
-                            Grid.SetRow(label, i);
-                            Grid.SetColumn(label, j);
-                            grd.Children.Add(label);
-                            label.HorizontalContentAlignment = HorizontalAlignment.Center;
-                            label.VerticalAlignment = VerticalAlignment.Bottom;
-                            Thickness margin = label.Margin;
-                            margin.Bottom = 20;
-                            label.Margin = margin;
+                       
 
 
 
+                        Label label = new Label();
+                        // label.Content = item;
+                        label.Width = 200;
+                        label.Height = 50;
+                        label.Background = Brushes.Transparent;
+                        label.Content = item.Name +" - " +item.Price;
 
-                        }
+
+                        Grid.SetRow(label, i);
+                        Grid.SetColumn(label, j);
+                        grd.Children.Add(label);
+                        label.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        label.VerticalAlignment = VerticalAlignment.Bottom;
+                        Thickness margin = label.Margin;
+                        margin.Bottom = 20;
+                        label.Margin = margin;
+
+
+
+                        Label labell = new Label();
+                        labell.Width = 50;
+                        labell.Height = 50;
+                        labell.Background = Brushes.Transparent;
+                        labell.Content = "BEY";
+                        labell.Foreground = Brushes.Gray;
+                        Grid.SetRow(labell, i);
+                        Grid.SetColumn(labell, j);
+                        grd.Children.Add(labell);
+                        labell.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        labell.VerticalAlignment = VerticalAlignment.Bottom;
+
+
                     }
+                }
 
-               //}
+                //}
             }
 
         }

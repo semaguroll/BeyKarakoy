@@ -19,15 +19,11 @@
 
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Visible" >
-        <StackPanel Name="slidegrid">
+        <StackPanel >
 
-            <Grid  Height="100" Width="772" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
-                <Button Name="btnLogo" BorderBrush="{x:Null}" VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120" Click="btnLogo_Click" >
-                    <Button.Background>
-                        <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
-                    </Button.Background>
-                </Button>
-                <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Height="500" Margin="0,0,-300,10" Background="Gray">
+            <Grid Name="slidegrid" HorizontalAlignment="Left" VerticalAlignment="Top">
+
+                <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Margin="0,0,-300,10" Background="Gray">
 
                     <Grid >
 
@@ -35,40 +31,51 @@
                         <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click">
                             <materialDesign:PackIcon Kind="Clear"/>
                         </Button>
-                        <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,73,0"/>
-                        <Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" Margin="0,133,0,305"></Label>
+                        <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,63,0"/>
+                        <Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" VerticalAlignment="Top" Margin="0,133,0,305"></Label>
                     </Grid>
 
 
 
                 </Grid>
-                <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="Black" SelectionChanged="cmbUst_SelectionChanged"/>
+
+                <Grid  Height="100" Width="772" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.524,0.52" Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}">
+                    <Button Name="btnLogo" BorderBrush="{x:Null}" VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120" Click="btnLogo_Click" >
+                        <Button.Background>
+                            <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
+
+                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,314,36" BorderBrush="Black" SelectionChanged="cmbUst_SelectionChanged"/>
 
 
-                <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,231,36" BorderBrush="Black" Grid.Column="2"/>
-                <ComboBox materialDesign:HintAssist.Hint="DİĞER" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="77" Margin="0,36,149,36" BorderBrush="Black"
+                    <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,231,36" BorderBrush="Black" Grid.Column="2"/>
+                    <ComboBox materialDesign:HintAssist.Hint="DİĞER" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="77" Margin="0,36,149,36" BorderBrush="Black"
                           Grid.Column="2"/>
-                <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Grid.Column="2" Margin="0,34" Click="btnSepet_Click">
-                    <materialDesign:PackIcon Kind="ShoppingBasket"/>
-                </Button>
-                <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" Click="btnSearch_Click" >
-                    <materialDesign:PackIcon Kind="Search"/>
-                </Button>
-                <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="48" Margin="623,0,0,34" Click="btnLogin_Click">
-                    <materialDesign:PackIcon Kind="Account"/>
-                </Button>
+                    <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Grid.Column="2" Margin="0,34" Click="btnSepet_Click">
+                        <materialDesign:PackIcon Kind="ShoppingBasket"/>
+                    </Button>
+                    <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,34,48,34" Grid.Column="2" Click="btnSearch_Click" >
+                        <materialDesign:PackIcon Kind="Search"/>
+                    </Button>
+                    <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="48" Margin="623,0,0,34" Click="btnLogin_Click">
+                        <materialDesign:PackIcon Kind="Account"/>
+                    </Button>
 
-            </Grid>
-            <Grid Height="100">
-                <Label Content="T-shirt" HorizontalAlignment="Center"  FontSize="17" Width="64" Height="30" Margin="356,24,355,46"></Label>
-                <Label Content="_________________________________________" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,63,0,0" Width="87" Height="27"/>
+                </Grid>
 
-            </Grid>
-            <Grid Height="1200">
-                <StackPanel x:Name="prodPanel" Orientation="Horizontal" HorizontalAlignment="Center" Width="630" Height="1200" Margin="74,0,69,0" >
+                <Grid Margin="0,210,0,0" Height="1200" >
+                    <StackPanel x:Name="prodPanel" Orientation="Horizontal" HorizontalAlignment="Center" Width="630" Height="1200" Margin="74,0,69,0" >
 
-                </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="105" Margin="2,100,0,0" VerticalAlignment="Top" Width="773">
+
+                    <Label Content="T-shirt" HorizontalAlignment="Center"  FontSize="17" Width="64" Height="30" Margin="354,0,355,47" VerticalAlignment="Bottom" RenderTransformOrigin="0.016,0.5"></Label>
+                    <Label Content="_________________________________________" Foreground="Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,63,0,0" Width="87" Height="27"/>
+                </Grid>
             </Grid>
+
             <Grid Height="124" Background="#FFDEDEDE">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Width="384"  Height="50" Background="White"/>
                 <TextBox HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="E-posta listemize üye olun." VerticalAlignment="Center" Width="280" Margin="196,48,267,46" TextDecorations="{x:Null}" FontFamily="Gabriola" FontSize="14" CaretBrush="Black"/>

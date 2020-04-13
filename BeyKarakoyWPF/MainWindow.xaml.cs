@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using EO.Internal;
 using System.Windows.Media.Animation;
+using System.Net.Http;
 
 namespace BeyKarakoyWPF
 {
@@ -43,12 +44,135 @@ namespace BeyKarakoyWPF
 
             List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
             cmbUst.ItemsSource = categories;
-            
-        
+
+            Create();
+
+
         }
-      
-     
-     
+
+        private void Create()
+        {
+
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:44331/");
+
+            HttpResponseMessage response = client.GetAsync("api/products").Result;
+            if (response.IsSuccessStatusCode)
+            {
+
+
+                var products = response.Content.ReadAsAsync<IEnumerable<Product>>().Result;
+
+
+                Grid grd = new Grid();
+                grd.ShowGridLines = false;
+                grd.Width = 630;
+                grd.HorizontalAlignment = HorizontalAlignment.Left;
+                grd.VerticalAlignment = VerticalAlignment.Top;
+                ColumnDefinition col1 = new ColumnDefinition();
+                ColumnDefinition col2 = new ColumnDefinition();
+                ColumnDefinition col3 = new ColumnDefinition();
+                RowDefinition row1 = new RowDefinition();
+                RowDefinition row2 = new RowDefinition();
+                RowDefinition row3 = new RowDefinition();        
+                grd.ColumnDefinitions.Add(col1);
+                grd.ColumnDefinitions.Add(col2);
+                grd.ColumnDefinitions.Add(col3);
+                row1.Height = new GridLength(300);
+                row2.Height = new GridLength(300);
+                row3.Height = new GridLength(300);               
+                grd.RowDefinitions.Add(row1);
+                grd.RowDefinitions.Add(row2);
+                grd.RowDefinitions.Add(row3);              
+                prodPanell.Children.Add(grd);
+
+                //var xi = (data1.Count / 3);
+                //var yi = 0;
+
+                var xi = (products.Count() / 3);
+                var yi = 0;
+
+                //foreach (var item in products)
+                //{
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        var item = products.ToList()[yi];
+                        //var itemm = data2[yi];
+                        yi++;
+
+
+                        Image img = new Image();
+
+                        Uri uri = new Uri(item.Image, UriKind.Absolute);
+                        ImageSource imgSource = new BitmapImage(uri);
+
+                        //BitmapImage bitmap = new BitmapImage();
+
+                        //bitmap.BeginInit();
+                        //bitmap.UriSource = new Uri(item.Image, UriKind.Absolute);
+                        //bitmap.EndInit();
+                        //img.Source = bitmap;
+                        img.Source = imgSource;
+                        Label lbl = new Label();
+                        lbl.Width = 150;
+                        lbl.Height = 200;
+                        //lbl.Background = Brushes.Black;
+                        lbl.Background = new ImageBrush(img.Source);
+                        Grid.SetRow(lbl, i);
+                        Grid.SetColumn(lbl, j);
+                        grd.Children.Add(lbl);
+                        lbl.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        lbl.VerticalAlignment = VerticalAlignment.Top;
+
+
+
+
+
+
+                        Label label = new Label();
+                        // label.Content = item;
+                        label.Width = 200;
+                        label.Height = 50;
+                        label.Background = Brushes.Transparent;
+                        label.Content = item.Name + " - " + item.Price;
+
+
+                        Grid.SetRow(label, i);
+                        Grid.SetColumn(label, j);
+                        grd.Children.Add(label);
+                        label.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        label.VerticalAlignment = VerticalAlignment.Bottom;
+                        Thickness margin = label.Margin;
+                        margin.Bottom = 20;
+                        label.Margin = margin;
+
+
+
+                        Label labell = new Label();
+                        labell.Width = 50;
+                        labell.Height = 50;
+                        labell.Background = Brushes.Transparent;
+                        labell.Content = "BEY";
+                        labell.Foreground = Brushes.Gray;
+                        Grid.SetRow(labell, i);
+                        Grid.SetColumn(labell, j);
+                        grd.Children.Add(labell);
+                        labell.HorizontalContentAlignment = HorizontalAlignment.Center;
+                        labell.VerticalAlignment = VerticalAlignment.Bottom;
+
+
+                    }
+                }
+
+                //}
+            }
+
+        }
+
 
         private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
