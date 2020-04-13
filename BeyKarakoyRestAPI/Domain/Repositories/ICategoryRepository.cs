@@ -1,4 +1,5 @@
-﻿using BeyKarakoyRestAPI.Models;
+﻿using BeyKarakoyRestAPI.Domain.Models;
+using BeyKarakoyRestAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

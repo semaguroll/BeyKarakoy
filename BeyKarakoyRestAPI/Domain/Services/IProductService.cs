@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BeyKarakoyRestAPI.Models
+namespace BeyKarakoyRestAPI.Domain.Services
 {
-    public class Category
+    public interface IProductService
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-   
+        Task<IEnumerable<Product>> ListAsync();
     }
 }

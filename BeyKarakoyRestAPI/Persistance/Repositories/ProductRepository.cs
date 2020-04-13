@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace BeyKarakoyRestAPI.Persistance.Repositories
 {
-    public class CategoryRepository : BaseRepository, ICategoryRepository
+    public class ProductRepository : BaseRepository,IProductRepository
     {
-        public CategoryRepository(BeyKarakoyContext context) : base(context)
+        public ProductRepository(BeyKarakoyContext context) : base(context)
         {
         }
 
-        public async Task<IEnumerable<Category>> ListAsync()
+        public async Task<IEnumerable<Product>> ListAsync()
         {
-            return await _context.Category.ToListAsync();
+            return await _context.Product.ToListAsync();
         }
     }
 }

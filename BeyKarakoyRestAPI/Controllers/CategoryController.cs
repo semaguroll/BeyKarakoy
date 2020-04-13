@@ -4,6 +4,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
 using BeyKarakoyRestAPI.Data;
+using BeyKarakoyRestAPI.Domain.Models;
 using BeyKarakoyRestAPI.Models;
 using BeyKarakoyRestAPI.Services;
 using Microsoft.AspNetCore.Http;

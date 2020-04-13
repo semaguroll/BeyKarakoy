@@ -1,4 +1,5 @@
 ﻿
+using BeyKarakoyRestAPI.Domain.Models;
 using BeyKarakoyRestAPI.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,8 +18,9 @@ namespace BeyKarakoyRestAPI.Data
         }
 
         public DbSet<Category> Category { get; set; }
-        //public DbSet<ProductModel> Product { get; set; }
-      
+        //public object Product { get; internal set; }
+        public DbSet<Product> Product { get; set; }
+
 
     }
 }

@@ -87,12 +87,12 @@ namespace BeyKarakoyWPF
             //                       }).ToList();
 
 
-            HttpResponseMessage response = client.GetAsync("api/categories").Result;
+            HttpResponseMessage response = client.GetAsync("api/products").Result;
             if (response.IsSuccessStatusCode)
             {
 
 
-                var products = response.Content.ReadAsAsync<IEnumerable<Category>>().Result;
+                var products = response.Content.ReadAsAsync<IEnumerable<Product>>().Result;
 
 
                 Grid grd = new Grid();
