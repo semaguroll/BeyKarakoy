@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BeyKarakoyRestAPI.Controllers
 {
-    [Route("api/getcategory")]
+    [Route("api/ok")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
@@ -27,18 +27,18 @@ namespace BeyKarakoyRestAPI.Controllers
 
         }
         [HttpGet]
-        public async Task<IEnumerable<Category>> ListAsync()
-        {
-            var categories = await _categoryService.ListAsync();
-
-            return categories;
-        }
-        //// GET: api/Product1
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        //public async Task<IEnumerable<Category>> ListAsync()
         //{
-        //    return await _context.Products.ToListAsync();
+        //    var categories = await _categoryService.ListAsync();
+
+        //    return categories;
         //}
+        //// GET: api/Product1
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Category>>> GetProducts()
+        {
+            return await _context.Category.ToListAsync();
+        }
 
         // GET: api/Products/5
         [HttpGet("{id}")]

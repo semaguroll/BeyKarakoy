@@ -16,29 +16,29 @@ namespace BeyKarakoyRestAPI.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly BeyKarakoyContext _context;
-        private readonly ICategoryService _categoryService;
+        //private readonly ICategoryService _categoryService;
 
 
-        public CategoriesController(BeyKarakoyContext context,ICategoryService categoryService)
+        public CategoriesController(BeyKarakoyContext context/*,ICategoryService categoryService*/)
         {
             _context = context;
-            _categoryService = categoryService;
+            //_categoryService = categoryService;
         }
 
-        [HttpGet]
-        public async Task<IEnumerable<Category>> GetAllAsync()
-        {
-            var categories = await _categoryService.ListAsync();
-            return categories;
-        }
-
-
-        // GET: api/Categories
         //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        //public async Task<IEnumerable<Category>> GetAllAsync()
         //{
-        //    return await _context.Category.ToListAsync();
+        //    var categories = await _categoryService.ListAsync();
+        //    return categories;
         //}
+
+
+        //GET: api/Categories
+       [HttpGet]
+        public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
+        {
+            return await _context.Category.ToListAsync();
+        }
 
         // GET: api/Categories/5
         [HttpGet("{id}")]
