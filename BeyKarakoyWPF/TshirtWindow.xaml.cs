@@ -108,22 +108,31 @@ namespace BeyKarakoyWPF
             grd.RowDefinitions.Add(row4);
             prodPanel.Children.Add(grd);
 
+            var xi = (data1.Count / 3);
+            var yi = 0;
 
-                for (int i = 0; i <= 3; i++)
+
+                for (int i = 0; i < xi; i++)
                 {
-                    for (int j = 0; j <= 4; j++)
+                    for (int j = 0; j < 3; j++)
                     {
-                        //BitmapImage bitmap = new BitmapImage();
-                        //Image img = new Image();
-                        //bitmap.BeginInit();
-                        //bitmap.UriSource = new Uri("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
-                        //bitmap.EndInit();
-                        //img.Source = bitmap;
-                        Label lbl = new Label();
+                    var item = data1[yi];
+                    var itemm = data2[yi];
+                    yi++;
+                   
+
+
+                    BitmapImage bitmap = new BitmapImage();
+                    Image img = new Image();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri("https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png");
+                    bitmap.EndInit();
+                    img.Source = bitmap;
+                    Label lbl = new Label();
                         lbl.Width = 150;
                         lbl.Height = 200;
                         lbl.Background = Brushes.Black;
-                        //lbl.Background = new ImageBrush(data2);
+                        lbl.Background = new ImageBrush(itemm.Image);
                         Grid.SetRow(lbl, i);
                         Grid.SetColumn(lbl, j);
                         grd.Children.Add(lbl);
@@ -135,7 +144,7 @@ namespace BeyKarakoyWPF
                         label.Width = 200;
                     label.Height = 50;
                         label.Background = Brushes.Gray;
-                        label.Content = data1;
+                        label.Content = item.Name;
                        
       
                         Grid.SetRow(label, i);

@@ -1,46 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
-using BeyKarakoyRestAPI.Data;
-using BeyKarakoyRestAPI.Models;
-using BeyKarakoyRestAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using BeyKarakoyRestAPI.Data;
+using BeyKarakoyRestAPI.Models;
+using BeyKarakoyRestAPI.Services;
 
 namespace BeyKarakoyRestAPI.Controllers
 {
-    [Route("api/getcategory")]
+    [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class CategoriesController : ControllerBase
     {
         private readonly BeyKarakoyContext _context;
-
         private readonly ICategoryService _categoryService;
 
-        public CategoryController(BeyKarakoyContext context, ICategoryService categoryService)
+
+        public CategoriesController(BeyKarakoyContext context,ICategoryService categoryService)
         {
             _context = context;
             _categoryService = categoryService;
-
         }
+
         [HttpGet]
-        public async Task<IEnumerable<Category>> ListAsync()
+        public async Task<IEnumerable<Category>> GetAllAsync()
         {
             var categories = await _categoryService.ListAsync();
-
             return categories;
         }
-        //// GET: api/Product1
+
+
+        // GET: api/Categories
         //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        //public async Task<ActionResult<IEnumerable<Category>>> GetCategory()
         //{
-        //    return await _context.Products.ToListAsync();
+        //    return await _context.Category.ToListAsync();
         //}
 
-        // GET: api/Products/5
+        // GET: api/Categories/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
         {
@@ -54,7 +54,7 @@ namespace BeyKarakoyRestAPI.Controllers
             return category;
         }
 
-        // PUT: api/Products1/5
+        // PUT: api/Categories/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -71,7 +71,7 @@ namespace BeyKarakoyRestAPI.Controllers
             {
                 await _context.SaveChangesAsync();
             }
-            catch (System.Data.Entity.Infrastructure.DbUpdateConcurrencyException)
+            catch (DbUpdateConcurrencyException)
             {
                 if (!CategoryExists(id))
                 {
@@ -86,7 +86,7 @@ namespace BeyKarakoyRestAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Products1
+        // POST: api/Categories
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
@@ -95,10 +95,10 @@ namespace BeyKarakoyRestAPI.Controllers
             _context.Category.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetProduct", new { id = category.Id }, category);
+            return CreatedAtAction("GetCategory", new { id = category.Id }, category);
         }
 
-        // DELETE: api/Products1/5
+        // DELETE: api/Categories/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Category>> DeleteCategory(int id)
         {
