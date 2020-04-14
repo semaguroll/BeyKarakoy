@@ -17,7 +17,7 @@ namespace APITest
         //ProductServiceFake service;
         //public ProductTest()
         //{
-
+        
         //    _controller = new ProductsController(context,service);
         //}
         ProductsController _controller;
@@ -29,7 +29,7 @@ namespace APITest
             IProductService servicee = (IProductService)service;      
          
             //_service = new ProductServiceFake();
-            _controller = new ProductsController(context , servicee);
+            _controller = new ProductsController(context);
         }
 
         [Fact]
