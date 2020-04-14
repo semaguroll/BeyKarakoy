@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BeyKarakoyRestAPI.Data;
 using BeyKarakoyRestAPI.Domain.Models;
+using BeyKarakoyRestAPI.Domain.Services;
 
 namespace BeyKarakoyRestAPI.Controllers
 {
@@ -15,10 +16,12 @@ namespace BeyKarakoyRestAPI.Controllers
     public class ProductsController : ControllerBase
     {
         private readonly BeyKarakoyContext _context;
+  
 
         public ProductsController(BeyKarakoyContext context)
         {
             _context = context;
+
         }
 
         // GET: api/Products

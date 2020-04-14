@@ -2,10 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BeyKarakoyRestAPI.Data;
-using BeyKarakoyRestAPI.Domain.Repositories;
-using BeyKarakoyRestAPI.Persistance.Repositories;
-using BeyKarakoyRestAPI.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -15,6 +11,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using BeyKarakoyRestAPI.Domain.Repositories;
+using BeyKarakoyRestAPI.Domain.Services;
+using BeyKarakoyRestAPI.Persistance.Repositories;
+using BeyKarakoyRestAPI.Services;
+using Newtonsoft.Json;
+using BeyKarakoyRestAPI.Data;
+
 
 namespace BeyKarakoyRestAPI
 {
@@ -32,13 +35,15 @@ namespace BeyKarakoyRestAPI
         {
            
             services.AddControllers();
-
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             services.AddDbContext<BeyKarakoyContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("BeyKarakoyContext")));
 
-            services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
-            services.AddControllers();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            //services.AddControllers();
             //services.AddControllers().AddNewtonsoftJson(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore);
         }
 

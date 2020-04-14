@@ -67,7 +67,7 @@ namespace BeyKarakoyWPF
 
                 Grid grd = new Grid();
                 grd.ShowGridLines = false;
-                grd.Width = 630;
+                grd.Width = 1000;
                 grd.HorizontalAlignment = HorizontalAlignment.Left;
                 grd.VerticalAlignment = VerticalAlignment.Top;
                 ColumnDefinition col1 = new ColumnDefinition();
@@ -79,9 +79,9 @@ namespace BeyKarakoyWPF
                 grd.ColumnDefinitions.Add(col1);
                 grd.ColumnDefinitions.Add(col2);
                 grd.ColumnDefinitions.Add(col3);
-                row1.Height = new GridLength(300);
-                row2.Height = new GridLength(300);
-                row3.Height = new GridLength(300);               
+                row1.Height = new GridLength(400);
+                row2.Height = new GridLength(400);
+                row3.Height = new GridLength(400);               
                 grd.RowDefinitions.Add(row1);
                 grd.RowDefinitions.Add(row2);
                 grd.RowDefinitions.Add(row3);              
@@ -118,8 +118,8 @@ namespace BeyKarakoyWPF
                         //img.Source = bitmap;
                         img.Source = imgSource;
                         Label lbl = new Label();
-                        lbl.Width = 150;
-                        lbl.Height = 200;
+                        lbl.Width = 250;
+                        lbl.Height = 300;
                         //lbl.Background = Brushes.Black;
                         lbl.Background = new ImageBrush(img.Source);
                         Grid.SetRow(lbl, i);
