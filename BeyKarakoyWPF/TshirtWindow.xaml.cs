@@ -32,9 +32,19 @@ namespace BeyKarakoyWPF
         {
 
 
-            List<Category> categories = dataa.Categories.OrderBy(x => x.Name).ToList();
-            cmbUst.ItemsSource = categories;
-            Create();
+            //List<Category> categories = dataa.Categories.OrderBy(x => x.Name).ToList();
+            //cmbUst.ItemsSource = categories;
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:44331/");
+            HttpResponseMessage response = client.GetAsync("api/categories").Result;          
+            if (response.IsSuccessStatusCode)
+            {
+                var categories = response.Content.ReadAsAsync<IEnumerable<Category>>().Result;                    
+                    //var item = categories.ToList()[i];
+                    cmbUst.ItemsSource = categories;
+            }
+                Create();
         }
 
 

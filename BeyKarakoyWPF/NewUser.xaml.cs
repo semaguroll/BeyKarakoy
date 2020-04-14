@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -56,8 +57,18 @@ namespace BeyKarakoyWPF
 
         private void newUserWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
-            cmbUst.ItemsSource = categories;
+            //List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
+            //cmbUst.ItemsSource = categories;
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:44331/");
+            HttpResponseMessage response = client.GetAsync("api/categories").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var categories = response.Content.ReadAsAsync<IEnumerable<Category>>().Result;
+                //var item = categories.ToList()[i];
+                cmbUst.ItemsSource = categories;
+            }
         }
 
         private void btnLogo_Click(object sender, RoutedEventArgs e)

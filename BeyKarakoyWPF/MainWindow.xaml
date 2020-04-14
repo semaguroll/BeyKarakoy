@@ -55,20 +55,20 @@
 
 
                 </Grid>
-                <Grid Height="100" Width="776" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                <Grid Height="127" Width="1352" HorizontalAlignment="Left" VerticalAlignment="Top" >
 
                     <Button Name="btnLogo" BorderBrush="{x:Null}" VerticalAlignment="Top" Height="80" Margin="10,10,0,0" HorizontalAlignment="Left" Width="120" Click="btnLogo_Click" >
                         <Button.Background>
                             <ImageBrush ImageSource="logo.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
-                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" FontSize="17" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="110" Margin="0,58,27,10" BorderBrush="White" SelectionChanged="cmbUst_SelectionChanged" MouseEnter="cmbUst_MouseEnter" MouseLeave="cmbUst_MouseLeave" Height="32"/>
+                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" FontSize="15" Foreground="White" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="100" Margin="0,36,492,32" BorderBrush="White" SelectionChanged="cmbUst_SelectionChanged" MouseEnter="cmbUst_MouseEnter" MouseLeave="cmbUst_MouseLeave" Height="32" RenderTransformOrigin="0.485,0.547"/>
 
 
-                    <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="White" FontSize="17" HorizontalAlignment="Right" VerticalAlignment="Center" Width="110" Margin="0,58,-101,10" BorderBrush="White" Height="32"/>
-                    <ComboBox materialDesign:HintAssist.Hint="DİĞER" Foreground="White" FontSize="17" HorizontalAlignment="Right" VerticalAlignment="Center" Width="110" Margin="0,58,-227,10" BorderBrush="White" Height="32"/>
+                    <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="White" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Margin="0,36,282,32" BorderBrush="White" Height="32"/>
+                    <ComboBox materialDesign:HintAssist.Hint="DİĞER" Foreground="White" FontSize="15" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Margin="0,36,387,32" BorderBrush="White" Height="32"/>
 
-                    <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="53" Margin="0,58,-518,0" Click="btnSepet_Click">
+                    <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="54" Margin="0,50,32,0" Click="btnSepet_Click">
                         <materialDesign:PackIcon Kind="ShoppingBasket"/>
                         <!--<Button.Triggers>
 
@@ -88,10 +88,10 @@
                     </Button.Triggers>-->
 
                     </Button>
-                    <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,58,-460,10" Click="btnSearch_Click" >
+                    <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,36,91,32" Click="btnSearch_Click" >
                         <materialDesign:PackIcon Kind="Search"/>
                     </Button>
-                    <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="1135,58,-407,10" Click="btnLogin_Click">
+                    <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="48" Margin="1160,36,0,32" Click="btnLogin_Click">
                         <materialDesign:PackIcon Kind="Account"/>
                     </Button>
                 </Grid>

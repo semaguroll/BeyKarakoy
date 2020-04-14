@@ -26,24 +26,27 @@ namespace BeyKarakoyWPF
     {
       
         WebOdevEntities data = new WebOdevEntities();
-        // CollectionViewSource categoryViewSource;
-        //CollectionViewSource productViewSource;
-
-
+       
         public MainWindow()
         {
-            InitializeComponent();
-
-            //categoryViewSource = ((CollectionViewSource)(FindResource("categoryViewSource")));
-            ////productViewSource = ((CollectionViewSource)(FindResource("catProductsViewSource")));
-            //DataContext = this;
+            InitializeComponent();           
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
 
-            List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
-            cmbUst.ItemsSource = categories;
+            //List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
+            //cmbUst.ItemsSource = categories;
+
+            HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri("https://localhost:44331/");
+            HttpResponseMessage response = client.GetAsync("api/categories").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var categories = response.Content.ReadAsAsync<IEnumerable<Category>>().Result;
+                //var item = categories.ToList()[i];
+                cmbUst.ItemsSource = categories;
+            }
 
             Create();
 
