@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+             mc:Ignorable="d"
+             x:Class="BeyKarakoyXamarin.Views.Anasayfa">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" />
+
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <StackLayout>
+                    <CarouselView x:Name="MainSlider" AutomationProperties.IsInAccessibleTree="False" >
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Image Source="{Binding .}"  />
+                                    
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </StackLayout>
+                <StackLayout>
+                    <Label Text="Öne Çıkanlar" FontSize="20" HorizontalTextAlignment="Center"/>
+                    <Label Text="_________" HorizontalOptions="Center" />
+                </StackLayout>
+                <StackLayout >
+                    <!--<Grid x:Name="InfoGrid">                        
+                        <ImageButton Source="{Binding ImageSource}"/>
+                        <Label HorizontalOptions="Fill" VerticalOptions="Fill" TextColor="Black" XAlign="Center" YAlign="Center" Text="{Binding Info }"/>
+                    </Grid>-->
+
+                    <flv:FlowListView FlowColumnCount="1"  x:Name="listdata" 
+                SeparatorVisibility="Default"   
+                HasUnevenRows="True"  
+                FlowItemTappedCommand="{Binding ItemTappedCommand}"   
+                FlowItemsSource="{Binding Items}">
+
+                        <flv:FlowListView.FlowColumnTemplate>
+                            <DataTemplate>
+                                <Frame BackgroundColor="White" Margin="5">
+                                    <StackLayout>
+                                        <Image Source="{Binding ImageSrc}"  />
+                                        <Label Text="{Binding NameSrc}"/>                                        
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </flv:FlowListView.FlowColumnTemplate>
+                    </flv:FlowListView>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
