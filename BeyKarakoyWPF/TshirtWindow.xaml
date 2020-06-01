@@ -46,7 +46,7 @@
                         </Button.Background>
                     </Button>
 
-                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,332,36" BorderBrush="Black" SelectionChanged="cmbUst_SelectionChanged"/>
+                    <ComboBox x:Name="cmbUst" materialDesign:HintAssist.Hint="ÜST" Foreground="Black" HorizontalAlignment="Right"  VerticalAlignment="Center" Width="78" Margin="0,36,332,36" BorderBrush="Black"/>
 
 
                     <ComboBox materialDesign:HintAssist.Hint="ALT" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="78" Margin="0,36,249,36" BorderBrush="Black"/>

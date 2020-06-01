@@ -22,7 +22,7 @@ namespace BeyKarakoyWPF
     /// </summary>
     public partial class TshirtWindow : Window
     {
-        WebOdevEntities dataa = new WebOdevEntities();
+        BeyKarakoyEntities dataa = new BeyKarakoyEntities();
         public TshirtWindow()
         {
             InitializeComponent();
@@ -45,15 +45,6 @@ namespace BeyKarakoyWPF
                     cmbUst.ItemsSource = categories;
             }
                 Create();
-        }
-
-
-
-
-
-        private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
 
 

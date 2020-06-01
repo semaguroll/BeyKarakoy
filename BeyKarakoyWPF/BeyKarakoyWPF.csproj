@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.props" Condition="Exists('packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.props')" />
   <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -69,8 +70,13 @@
       <HintPath>packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
       <Private>True</Private>
@@ -79,11 +85,14 @@
     <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -96,47 +105,79 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Forms.4.6.0.800\lib\netstandard2.0\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Forms.4.6.0.800\lib\netstandard2.0\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Xamarin.Forms.4.6.0.800\lib\netstandard2.0\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BeyKarakoyModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BeyKarakoyModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeyKarakoyModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BeyKarakoyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BeyKarakoyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BeyKarakoyModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Category.cs">
-      <DependentUpon>WebOdevModel.tt</DependentUpon>
+      <DependentUpon>BeyKarakoyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\RestAPI.cs" />
+    <Compile Include="Data\SetProducts.cs" />
+    <Compile Include="DetailWindow.xaml.cs">
+      <DependentUpon>DetailWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Categories.cs" />
+    <Compile Include="Model\CategoryModel.cs" />
     <Compile Include="Model\Logic\PageLogic.cs" />
+    <Compile Include="Model\ProductModel.cs" />
+    <Compile Include="Model\Products.cs" />
+    <Compile Include="Model\SepetModel.cs" />
+    <Compile Include="Model\Sepett.cs" />
     <Compile Include="NewUser.xaml.cs">
       <DependentUpon>NewUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>WebOdevModel.tt</DependentUpon>
+      <DependentUpon>BeyKarakoyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="SearchWindow.xaml.cs">
       <DependentUpon>SearchWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sepet.cs">
+      <DependentUpon>BeyKarakoyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SepetWindow.xaml.cs">
+      <DependentUpon>SepetWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Sipari.cs">
+      <DependentUpon>BeyKarakoyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="TshirtWindow.xaml.cs">
       <DependentUpon>TshirtWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="WebOdevModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WebOdevModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WebOdevModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WebOdevModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="WebOdevModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>WebOdevModel.edmx</DependentUpon>
-    </Compile>
+    <Page Include="DetailWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SepetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,19 +229,19 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="BeyKarakoyModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BeyKarakoyModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BeyKarakoyModel.edmx.diagram">
+      <DependentUpon>BeyKarakoyModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Category.datasource" />
     <None Include="Properties\DataSources\Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <EntityDeploy Include="WebOdevModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>WebOdevModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="WebOdevModel.edmx.diagram">
-      <DependentUpon>WebOdevModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -215,15 +260,15 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="WebOdevModel.Context.tt">
+    <Content Include="BeyKarakoyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WebOdevModel.edmx</DependentUpon>
-      <LastGenOutput>WebOdevModel.Context.cs</LastGenOutput>
+      <DependentUpon>BeyKarakoyModel.edmx</DependentUpon>
+      <LastGenOutput>BeyKarakoyModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="WebOdevModel.tt">
+    <Content Include="BeyKarakoyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>WebOdevModel.edmx</DependentUpon>
-      <LastGenOutput>WebOdevModel.cs</LastGenOutput>
+      <DependentUpon>BeyKarakoyModel.edmx</DependentUpon>
+      <LastGenOutput>BeyKarakoyModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -235,6 +280,9 @@
     <Error Condition="!Exists('packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.3.0.1\build\MaterialDesignThemes.targets'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
     <Error Condition="!Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.props'))" />
+    <Error Condition="!Exists('packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.targets'))" />
   </Target>
   <Import Project="packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+  <Import Project="packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.targets" Condition="Exists('packages\Xamarin.Forms.4.6.0.800\build\Xamarin.Forms.targets')" />
 </Project>

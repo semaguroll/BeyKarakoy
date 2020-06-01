@@ -13,10 +13,10 @@ namespace BeyKarakoyWPF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class WebOdevEntities : DbContext
+    public partial class BeyKarakoyEntities : DbContext
     {
-        public WebOdevEntities()
-            : base("name=WebOdevEntities")
+        public BeyKarakoyEntities()
+            : base("name=BeyKarakoyEntities")
         {
         }
     
@@ -27,5 +27,7 @@ namespace BeyKarakoyWPF
     
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Sepet> Sepets { get; set; }
+        public virtual DbSet<Sipari> Siparis { get; set; }
     }
 }

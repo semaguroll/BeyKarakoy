@@ -21,7 +21,7 @@ namespace BeyKarakoyWPF
     /// </summary>
     public partial class Login : Window
     {
-        WebOdevEntities data = new WebOdevEntities();
+        BeyKarakoyEntities data = new BeyKarakoyEntities();
         public Login()
         {
             InitializeComponent();

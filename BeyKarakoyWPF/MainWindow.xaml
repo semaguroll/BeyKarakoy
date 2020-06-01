@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"        
         xmlns:local="clr-namespace:BeyKarakoyWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"       
-        mc:Ignorable="d" Height="2722.746" Width="1380" Loaded="MainWindow_Loaded" ResizeMode="NoResize">
+        mc:Ignorable="d" Height="2723" Width="1380" Loaded="MainWindow_Loaded" ResizeMode="NoResize">
     <Window.Resources>
         <CollectionViewSource x:Key="categoryViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Category}, CreateList=True}"/>
 
@@ -31,10 +31,6 @@
     <ScrollViewer>
         <StackPanel  HorizontalAlignment="Left" Width="1357" >
 
-
-
-
-
             <Grid Name="slidegrid" HorizontalAlignment="Left" Height="860" VerticalAlignment="Top"  Width="1357">
 
                 <Grid.Background>
@@ -49,7 +45,30 @@
                             <materialDesign:PackIcon Kind="Clear"/>
                         </Button>
                         <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,73,0"/>
-                        <Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" Margin="0,133,0,305"></Label>
+                        <!--<Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" Margin="0,133,0,305"></Label>-->
+                        <StackPanel>
+                            <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listsepet"  ItemsSource="{Binding myProducts}"  MouseDoubleClick="listdata_MouseDoubleClick"   >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate >
+                                        <Grid Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                            <Image Height="250" 
+                                               Width="200"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Top"
+                                                Margin="20"
+                                               Source="{Binding ImageSrc}"  />
+                                            <Label Content="{Binding Show}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"  />
+                                            <Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                                <ListBox.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <UniformGrid Columns="3"/>
+                                    </ItemsPanelTemplate>
+                                </ListBox.ItemsPanel>
+                            </ListBox>
+                        </StackPanel>
                     </Grid>
 
 
@@ -70,23 +89,6 @@
 
                     <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="54" Margin="0,50,32,0" Click="btnSepet_Click">
                         <materialDesign:PackIcon Kind="ShoppingBasket"/>
-                        <!--<Button.Triggers>
-
-                        -->
-                        <!-- Animates the width of the first button 
-               from 200 to 300. -->
-                        <!--
-                        <EventTrigger RoutedEvent="Button.Click">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="stackpnl"
-                  Storyboard.TargetProperty="Width"
-                  From="776" To="476" Duration="0:0:0.5" />
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </Button.Triggers>-->
-
                     </Button>
                     <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,36,91,32" Click="btnSearch_Click" >
                         <materialDesign:PackIcon Kind="Search"/>
@@ -107,10 +109,34 @@
                 <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="616,79,0,0" Width="88" />
 
             </Grid>
-            <Grid Height="1200">
-                <StackPanel x:Name="prodPanell" HorizontalAlignment="Center" Orientation="Horizontal" Height="1200" Width="1000" Margin="178,0,171,0" />
+            <StackPanel  Height="1600">
+                <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listdata"  ItemsSource="{Binding myProducts}"  MouseDoubleClick="listdata_MouseDoubleClick"   >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate >
+                            <StackPanel Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" >                                
+                                <Image Height="250" 
+                                               Width="200"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Top"
+                                                Margin="20"
+                                               Source="{Binding ImageSrc}"  />
+                                <Label Content="{Binding Show}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"  />
+                                <Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>
+                            </StackPanel>    
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="3"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
 
-            </Grid>
+                <!--<StackPanel x:Name="prodPanell" HorizontalAlignment="Center" Orientation="Horizontal" Height="1200" Width="1000" Margin="178,0,171,0" />-->
+
+            </StackPanel>
+
+
 
             <Grid Height="148">
 
@@ -154,6 +180,7 @@
 
 
             </Grid>
+
 
 
 

@@ -12,13 +12,13 @@ namespace BeyKarakoyWPF
     using System;
     using System.Collections.Generic;
     
-    public partial class Category
+    public partial class Sipari
     {
         public int Id { get; set; }
+        public int Count { get; set; }
         public string Name { get; set; }
-        public override string ToString()
-        {
-            return Name;
-        }
+        public string Size { get; set; }
+        public int Price { get; set; }
+        public string Image { get; set; }
     }
 }
