@@ -27,7 +27,7 @@
                     <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Margin="0,0,-300,10" Background="Gray">
 
                         <StackPanel >
-                            <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click_1" Grid.ColumnSpan="2">
+                            <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click" Grid.ColumnSpan="2">
                                 <materialDesign:PackIcon Kind="Clear"/>
                             </Button>
                             <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,41,0"/>
@@ -35,7 +35,7 @@
                             <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listsepet"  ItemsSource="{Binding myProducts}" Grid.ColumnSpan="2">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <Grid Width="250" >                                        
+                                        <Grid Width="250" >
                                             <Image Height="150" 
                                                Width="100"
                                                HorizontalAlignment="Left"
@@ -43,6 +43,7 @@
                                                Source="{Binding Image}"  />
                                             <Label Content="{Binding Name}" Width="100" VerticalAlignment="Top"  HorizontalAlignment="Right"/>
                                             <Label Content="{Binding Price}" Width="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20" />
+                                            <Label Content="{Binding Size}" Width="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50,20" />
                                             <Border BorderBrush="LightGray" BorderThickness="1" Height="18" Width="53" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50" >
                                                 <StackPanel  Height="17" Width="53" Orientation="Horizontal" >
                                                     <Button x:Name="cmdUp" Width="15" Padding="0" Height="15" Foreground="LightGray" Background="{x:Null}" BorderBrush="{x:Null}"  Click="cmdUp_Click">
@@ -53,7 +54,7 @@
                                                         <materialDesign:PackIcon Kind="Minus"/>
                                                     </Button>
                                                 </StackPanel>
-                                            </Border>                                            
+                                            </Border>
                                             <!--<Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>-->
                                         </Grid>
                                     </DataTemplate>
@@ -64,7 +65,7 @@
                                     </ItemsPanelTemplate>
                                 </ListBox.ItemsPanel>
                             </ListBox>
-                            <Button x:Name="btnFinish" Content="Alışverişi Tamamla" Click="btnFinish_Click"  />
+                            <Button x:Name="btnFinish" Content="Alışverişi Tamamla" Background="Black" BorderBrush="Black" Foreground="White" Click="btnFinish_Click"  />
                         </StackPanel>
 
 
@@ -110,7 +111,7 @@
                             <Button x:Name="btnXL"  Content="XL" Background="White" Foreground="Black"  BorderBrush="White" Height="50" Width="50" Margin="299,25,151,25" Click="btnXL_Click"/>
                             <Button x:Name="btnXXL"  Content="XXL" Background="White" Foreground="Black" BorderBrush="White"  Height="50" Margin="394,25,40,25" Click="btnXXL_Click"/>
                         </Grid>
-                        <Button Content="SEPETE EKLE" Background="Black" Foreground="White" Height="50" Width="200" Margin="854,574,320,467"  x:Name="btnId" Click="btnId_Click"/>
+                        <Button Content="SEPETE EKLE" Background="Black" BorderBrush="Black" Foreground="White" Height="Auto" Margin="854,574,295,455"  x:Name="btnId" Click="btnId_Click"/>
                         <Label   Height="50" Width="500" x:Name="lblSepetInfo" Visibility="Hidden" Margin="726,664,129,397"/>
                         <Label   Height="100" Width="500" x:Name="lblDescription" Margin="726,720,129,271"/>
                         <Label  Height="100" Width="500" HorizontalAlignment="Center"  VerticalAlignment="Center" x:Name="lblInfo" Margin="726,855,129,136"/>

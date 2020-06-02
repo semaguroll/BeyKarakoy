@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BeyKarakoyRestAPI.Data;
-using BeyKarakoyRestAPI.Models;
+using BeyKarakoyRestAPI.Domain.Models;
+using BeyKarakoyRestAPI.Persistance.Context;
 
-namespace BeyKarakoyRestAPI.Controllers
+namespace BeyKarakoyRestAPI.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -43,8 +43,8 @@ namespace BeyKarakoyRestAPI.Controllers
         }
 
         // PUT: api/Categories/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
@@ -75,8 +75,8 @@ namespace BeyKarakoyRestAPI.Controllers
         }
 
         // POST: api/Categories
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {

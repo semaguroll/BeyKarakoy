@@ -55,11 +55,11 @@
                     <Label Content="Yeni Hesap Oluştur!" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Width="193" ></Label>
                 </Grid>
                 <Grid HorizontalAlignment="Center" Width="340" Margin="218,200,217,12" Grid.ColumnSpan="2">
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,155,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,190,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,85,0,0" TextWrapping="Wrap" Text="  Adınız" VerticalAlignment="Top" Width="173"/>
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,120,0,0" TextWrapping="Wrap" Text="  Soyadınız" VerticalAlignment="Top" Width="173"/>
-                    <Button Content="OLUŞTUR!" Background="Black" HorizontalAlignment="Left" Margin="81,241,0,0" VerticalAlignment="Top" Width="173" Height="29"/>
+                    <TextBox Name="txtMail" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,155,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
+                    <TextBox Name="txtPassword" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,190,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
+                    <TextBox Name="txtName" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,85,0,0" TextWrapping="Wrap" Text="  Adınız" VerticalAlignment="Top" Width="173"/>
+                    <TextBox Name="txtSurname" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="82,120,0,0" TextWrapping="Wrap" Text="  Soyadınız" VerticalAlignment="Top" Width="173"/>
+                    <Button Name="btnSignup" Content="OLUŞTUR!" Background="Black" HorizontalAlignment="Left" Margin="81,241,0,0" VerticalAlignment="Top" Width="173" Height="29" Click="btnSignup_Click"/>
                     <Button Name="btnMainPage" Content="Ana Sayfaya Geri Dön!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="173" Height="28" Margin="82,290,85,57" FontFamily="Sitka Heading" Click="btnMainPage_Click"/>
                 </Grid>
             </Grid>

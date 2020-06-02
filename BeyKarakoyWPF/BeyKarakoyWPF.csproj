@@ -153,6 +153,8 @@
     <Compile Include="Model\Products.cs" />
     <Compile Include="Model\SepetModel.cs" />
     <Compile Include="Model\Sepett.cs" />
+    <Compile Include="Model\Users.cs" />
+    <Compile Include="Model\UsersModel.cs" />
     <Compile Include="NewUser.xaml.cs">
       <DependentUpon>NewUser.xaml</DependentUpon>
     </Compile>
@@ -164,9 +166,6 @@
     </Compile>
     <Compile Include="Sepet.cs">
       <DependentUpon>BeyKarakoyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SepetWindow.xaml.cs">
-      <DependentUpon>SepetWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sipari.cs">
       <DependentUpon>BeyKarakoyModel.tt</DependentUpon>
@@ -199,10 +198,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SearchWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SepetWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

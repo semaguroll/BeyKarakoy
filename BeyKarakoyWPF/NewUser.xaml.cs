@@ -99,5 +99,10 @@ namespace BeyKarakoyWPF
             this.Visibility = Visibility.Hidden;
             main.Show();
         }
+
+        private void btnSignup_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
     }
 }

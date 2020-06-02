@@ -5,28 +5,25 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using BeyKarakoyRestAPI.Data;
 using BeyKarakoyRestAPI.Domain.Models;
-using BeyKarakoyRestAPI.Domain.Services;
+using BeyKarakoyRestAPI.Persistance.Context;
 
-namespace BeyKarakoyRestAPI.Controllers
+namespace BeyKarakoyRestAPI.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase
     {
         private readonly BeyKarakoyContext _context;
-  
 
         public ProductsController(BeyKarakoyContext context)
         {
             _context = context;
-
         }
 
         // GET: api/Products
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
+        public async Task<ActionResult<IEnumerable<Product>>> GetProduct()
         {
             return await _context.Product.ToListAsync();
         }
@@ -46,8 +43,8 @@ namespace BeyKarakoyRestAPI.Controllers
         }
 
         // PUT: api/Products/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
@@ -78,8 +75,8 @@ namespace BeyKarakoyRestAPI.Controllers
         }
 
         // POST: api/Products
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
+        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {

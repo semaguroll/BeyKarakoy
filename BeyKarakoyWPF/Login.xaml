@@ -41,10 +41,10 @@
                     <Button Name="btnSepet" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,32,11,36" Click="btnSepet_Click">
                         <materialDesign:PackIcon Kind="ShoppingBasket"/>
                     </Button>
-                    <Button Name="btnSearch" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,32,64,36" Click="btnSearch_Click" >
+                    <Button Name="btnSearchPage" Background="{x:Null}" BorderBrush="{x:Null}"  Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Center" Width="48" Margin="0,32,64,36" Click="btnSearchPage_Click" >
                         <materialDesign:PackIcon Kind="Search"/>
                     </Button>
-                    <Button Name="btnLogin" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="45" Margin="0,0,117,34" Click="btnLogin_Click" Height="43">
+                    <Button Name="btnLoginPage" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="45" Margin="0,0,117,34" Click="btnLoginPage_Click" Height="43">
                         <materialDesign:PackIcon Kind="Account"/>
                     </Button>
                 </Grid>
@@ -54,9 +54,9 @@
 
                 </Grid>
                 <Grid HorizontalAlignment="Center" Height="313" Width="340" Margin="524,200,491,5">
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,32,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
-                    <TextBox HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,70,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
-                    <Button Content="GİRİŞ" Background="Black" BorderBrush="Black" HorizontalAlignment="Left" Margin="74,123,0,0" VerticalAlignment="Top" Width="173" Height="29"/>
+                    <TextBox Name="txtMail" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,32,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
+                    <TextBox Name="txtSifre" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,70,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
+                    <Button Name="btnLogin" Content="GİRİŞ" Background="Black" BorderBrush="Black" HorizontalAlignment="Left" Margin="74,123,0,0" VerticalAlignment="Top" Width="173" Height="29"/>
                     <Button Name="btnNewUser" Content="Yeni Üyelik" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,171,125,114" FontFamily="Sitka Heading" Click="btnNewUser_Click" />
                     <Button Name="btnMainPage" Content="Ana Sayfa" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,199,125,86" FontFamily="Sitka Heading" Click="btnMainPage_Click"/>
                     <Button  Content="Şifreyi Unutum!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="131" Height="28" Margin="94,227,115,58" FontFamily="Sitka Heading" RenderTransformOrigin="0.5,2.071"/>

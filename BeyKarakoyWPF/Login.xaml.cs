@@ -64,20 +64,6 @@ namespace BeyKarakoyWPF
             main.Show();
         }
 
-        private void btnLogin_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            this.Visibility = Visibility.Hidden;
-            login.Show();
-        }
-
-        private void btnSearch_Click(object sender, RoutedEventArgs e)
-        {
-            SearchWindow search = new SearchWindow();
-            this.Visibility = Visibility.Hidden;
-            search.Show();
-        }
-
         private void btnNewUser_Click(object sender, RoutedEventArgs e)
         {
             NewUser newuser = new NewUser();
@@ -106,6 +92,20 @@ namespace BeyKarakoyWPF
                 //var item = categories.ToList()[i];
                 cmbUst.ItemsSource = categories;
             }
+        }
+
+        private void btnSearchPage_Click(object sender, RoutedEventArgs e)
+        {
+            SearchWindow search = new SearchWindow();
+            this.Visibility = Visibility.Hidden;
+            search.Show();
+        }
+
+        private void btnLoginPage_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            this.Visibility = Visibility.Hidden;
+            login.Show();
         }
     }
 
