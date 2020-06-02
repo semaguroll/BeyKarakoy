@@ -53,14 +53,19 @@
                     <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="636,61,0,0" Width="87"/>
 
                 </Grid>
-                <Grid HorizontalAlignment="Center" Height="313" Width="340" Margin="524,200,491,5">
+
+                <Grid HorizontalAlignment="Center" Height="313" Width="340" Margin="506,205,509,0">
                     <TextBox Name="txtMail" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,32,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
                     <TextBox Name="txtSifre" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,70,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
-                    <Button Name="btnLogin" Content="GİRİŞ" Background="Black" BorderBrush="Black" HorizontalAlignment="Left" Margin="74,123,0,0" VerticalAlignment="Top" Width="173" Height="29"/>
-                    <Button Name="btnNewUser" Content="Yeni Üyelik" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,171,125,114" FontFamily="Sitka Heading" Click="btnNewUser_Click" />
-                    <Button Name="btnMainPage" Content="Ana Sayfa" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,199,125,86" FontFamily="Sitka Heading" Click="btnMainPage_Click"/>
-                    <Button  Content="Şifreyi Unutum!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="131" Height="28" Margin="94,227,115,58" FontFamily="Sitka Heading" RenderTransformOrigin="0.5,2.071"/>
+                    <Button Name="btnLogin" Content="GİRİŞ" Background="Black" BorderBrush="Black" HorizontalAlignment="Left" Margin="74,123,0,0" VerticalAlignment="Top" Width="173" Height="29" Click="btnLogin_Click" Grid.RowSpan="2"/>
+                    <Button Name="btnNewUser" Content="Yeni Üyelik" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,175,125,110" FontFamily="Sitka Heading" Click="btnNewUser_Click" />
+                    <Button Name="btnMainPage" Content="Ana Sayfa" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,208,125,77" FontFamily="Sitka Heading" Click="btnMainPage_Click"/>
+                    <Button  Content="Şifreyi Unutum!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="131" Height="28" Margin="96,236,113,49" FontFamily="Sitka Heading" RenderTransformOrigin="0.5,2.071"/>
                 </Grid>
+                <StackPanel Name="pnlUser" Visibility="Hidden" Background="White" Margin="524,205,491,151" Height="162" Width="340">
+                    <Label Name="lblUser" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="92"/>
+                    <Button Name="btnLogout" Content="ÇIKIŞ YAP" Click="btnLogout_Click" Width="150" Background="Black" BorderBrush="Black"/>
+                </StackPanel>
             </Grid>
             <Grid Height="124" Background="#FFDEDEDE">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Width="384"  Height="50" Background="White"/>

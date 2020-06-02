@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BeyKarakoyWPF.Data;
+using BeyKarakoyWPF.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -22,6 +24,8 @@ namespace BeyKarakoyWPF
     public partial class Login : Window
     {
         BeyKarakoyEntities data = new BeyKarakoyEntities();
+        RestAPI api = new RestAPI();
+        public bool login { get; set; }
         public Login()
         {
             InitializeComponent();
@@ -29,83 +33,86 @@ namespace BeyKarakoyWPF
         private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             TshirtWindow Tshirt = new TshirtWindow();
-
             if (cmbUst.SelectedItem.ToString() == "T-shirt")
             {
                 this.Visibility = Visibility.Hidden;
                 Tshirt.Show();
             }
-        }
-
-
+        }        
         private void btnSepet_Click(object sender, RoutedEventArgs e)
         {
-            //Storyboard sb = Resources["OpenMenu"] as Storyboard;
-
-            //sb.Begin(slidegrd);
             Storyboard sbrd = Resources["OpenM"] as Storyboard;
             sbrd.Begin(slidegrid);
-
         }
-
         private void btnCross_Click(object sender, RoutedEventArgs e)
         {
-            //Storyboard sb = Resources["CloseMenu"] as Storyboard;
-            //sb.Begin(slidegrd);
             Storyboard sbrd = Resources["CloseM"] as Storyboard;
             sbrd.Begin(slidegrid);
         }
-
-
         private void btnLogo_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
             this.Visibility = Visibility.Hidden;
             main.Show();
         }
-
         private void btnNewUser_Click(object sender, RoutedEventArgs e)
         {
             NewUser newuser = new NewUser();
             this.Visibility = Visibility.Hidden;
             newuser.Show();
         }
-
         private void btnMainPage_Click(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
             this.Visibility = Visibility.Hidden;
             main.Show();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //List<Category> categories = data.Categories.OrderBy(x => x.Name).ToList();
-            //cmbUst.ItemsSource = categories;
-
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44331/");
-            HttpResponseMessage response = client.GetAsync("api/categories").Result;
-            if (response.IsSuccessStatusCode)
+             var cat =api.GetCategories();           
+             cmbUst.ItemsSource = cat;
+            if (login == true)
             {
-                var categories = response.Content.ReadAsAsync<IEnumerable<Category>>().Result;
-                //var item = categories.ToList()[i];
-                cmbUst.ItemsSource = categories;
+                pnlUser.Visibility = Visibility.Visible;
+            }
+            else if (login == false)
+            {
+                pnlUser.Visibility = Visibility.Hidden;
             }
         }
-
         private void btnSearchPage_Click(object sender, RoutedEventArgs e)
         {
             SearchWindow search = new SearchWindow();
             this.Visibility = Visibility.Hidden;
             search.Show();
         }
-
         private void btnLoginPage_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
+            Login loginn = new Login();
             this.Visibility = Visibility.Hidden;
-            login.Show();
+            loginn.Show();         
+           
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in api.GetUsers())
+            {
+                if (item.Mail==txtMail.Text&&item.Password==txtSifre.Text)
+                {
+                    pnlUser.Visibility = Visibility.Visible;
+                    lblUser.Content ="Hoşgeldin " + item.Name + item.Surname;
+                    login = true;
+                }
+            }
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            pnlUser.Visibility = Visibility.Hidden;
+            txtMail.Clear();
+            txtSifre.Clear();
+            login = false;
         }
     }
 

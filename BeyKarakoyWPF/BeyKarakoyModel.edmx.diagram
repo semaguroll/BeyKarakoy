@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="10cc10679a444bb49aff1e4daed2dce1" Name="Diagram1">
+      <Diagram DiagramId="72f1b7652a104a3781c5d8a9be0dd6b1" Name="Diagram1">
         <EntityTypeShape EntityType="BeyKarakoyModel.Category" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BeyKarakoyModel.Product" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BeyKarakoyModel.Sepet" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />

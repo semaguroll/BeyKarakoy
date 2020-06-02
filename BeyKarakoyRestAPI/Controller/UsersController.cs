@@ -12,48 +12,48 @@ namespace BeyKarakoyRestAPI.Controller
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SepetController : ControllerBase
+    public class UsersController : ControllerBase
     {
         private readonly BeyKarakoyContext _context;
 
-        public SepetController(BeyKarakoyContext context)
+        public UsersController(BeyKarakoyContext context)
         {
             _context = context;
         }
 
-        // GET: api/Sepet
+        // GET: api/Users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Sepet>>> GetSepet()
+        public async Task<ActionResult<IEnumerable<User>>> GetUser()
         {
-            return await _context.Sepet.ToListAsync();
+            return await _context.User.ToListAsync();
         }
 
-        // GET: api/Sepet/5
+        // GET: api/Users/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Sepet>> GetSepet(int id)
+        public async Task<ActionResult<User>> GetUser(int id)
         {
-            var sepet = await _context.Sepet.FindAsync(id);
+            var user = await _context.User.FindAsync(id);
 
-            if (sepet == null)
+            if (user == null)
             {
                 return NotFound();
             }
 
-            return sepet;
+            return user;
         }
 
-        // PUT: api/Sepet/5
+        // PUT: api/Users/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSepet(int id, Sepet sepet)
+        public async Task<IActionResult> PutUser(int id, User user)
         {
-            if (id != sepet.Id)
+            if (id != user.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(sepet).State = EntityState.Modified;
+            _context.Entry(user).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +61,7 @@ namespace BeyKarakoyRestAPI.Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SepetExists(id))
+                if (!UserExists(id))
                 {
                     return NotFound();
                 }
@@ -74,37 +74,37 @@ namespace BeyKarakoyRestAPI.Controller
             return NoContent();
         }
 
-        // POST: api/Sepet
+        // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Sepet>> PostSepet(Sepet sepet)
+        public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Sepet.Add(sepet);
+            _context.User.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSepet", new { id = sepet.Id }, sepet);
+            return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 
-        // DELETE: api/Sepet/5
+        // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Sepet>> DeleteSepet(int id)
+        public async Task<ActionResult<User>> DeleteUser(int id)
         {
-            var sepet = await _context.Sepet.FindAsync(id);
-            if (sepet == null)
+            var user = await _context.User.FindAsync(id);
+            if (user == null)
             {
                 return NotFound();
             }
 
-            _context.Sepet.Remove(sepet);
+            _context.User.Remove(user);
             await _context.SaveChangesAsync();
 
-            return sepet;
+            return user;
         }
 
-        private bool SepetExists(int id)
+        private bool UserExists(int id)
         {
-            return _context.Sepet.Any(e => e.Id == id);
+            return _context.User.Any(e => e.Id == id);
         }
     }
 }

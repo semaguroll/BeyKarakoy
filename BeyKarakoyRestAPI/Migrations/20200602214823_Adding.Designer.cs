@@ -4,14 +4,16 @@ using BeyKarakoyRestAPI.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeyKarakoyRestAPI.Migrations
 {
     [DbContext(typeof(BeyKarakoyContext))]
-    partial class BeyKarakoyContextModelSnapshot : ModelSnapshot
+    [Migration("20200602214823_Adding")]
+    partial class Adding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,7 +226,7 @@ namespace BeyKarakoyRestAPI.Migrations
                             Description = "100% pamuk / Yuvarlak yaka /Model 185 cm beden M / 2 günde teslimat",
                             Image = "https://cdn.shopify.com/s/files/1/1432/5782/products/IMG_6643_1024x1024.jpg?v=1541585544",
                             Info = "Satın alacağınız üründen memnun kalacağınıza eminiz. Ancak memnun kalmadığınız takdirde değişim veya tam iade yapabilirsiniz.",
-                            Name = "Bey X Wunder T-shirt Beyaz",
+                            Name = "Bey X Wunder T-shirt Pembe",
                             Price = 133,
                             StockCount = 20
                         },
@@ -235,7 +237,7 @@ namespace BeyKarakoyRestAPI.Migrations
                             Description = "Straight fit / % 100 organic cotton GOTS /Rounded neckline / Color: Ferra Maroon /Fits true to size,take your normal size /Model is 182 cm and wearing a size M / 2 days delivery",
                             Image = "https://cdn.shopify.com/s/files/1/1432/5782/products/IMG_4586_1024x1024.JPG?v=1557488463",
                             Info = "This T-Shirt is GOTS certified.GOTS is the world leading certification standard for organic textiles including both ecological and social criteria.GOTS covers every step in the production process from fiber to finished garment.This garment is 3rd party certified.We are confident that you will be happy with your purchase.However, if you are not satisfied you can return your item for a full refund.",
-                            Name = "Pale Pink Organic T-shirt Pembe",
+                            Name = "Pale Pink Organic T-shirt Yeşil",
                             Price = 180,
                             StockCount = 20
                         },

@@ -36,7 +36,7 @@ namespace BeyKarakoyWPF
             //cmbUst.ItemsSource = categories;
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44331/");
+            client.BaseAddress = new Uri("https://localhost:44366/");
             HttpResponseMessage response = client.GetAsync("api/categories").Result;          
             if (response.IsSuccessStatusCode)
             {
@@ -70,7 +70,7 @@ namespace BeyKarakoyWPF
 
 
             HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("https://localhost:44331/");
+            client.BaseAddress = new Uri("https://localhost:44366/");
 
             //List<Product> products = dataa.Products.OrderBy(x => x.Name).ToList();
 

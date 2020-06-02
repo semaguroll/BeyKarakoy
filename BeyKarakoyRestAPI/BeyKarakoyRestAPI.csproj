@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200602125008_Deneme.cs" />
+    <Compile Remove="Migrations\20200602125008_Deneme.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Domain\Services\" />
     <Folder Include="Domain\Repositories\" />
     <Folder Include="Services\" />

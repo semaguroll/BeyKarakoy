@@ -107,9 +107,10 @@
             <Grid Height="113">
                 <Label Content="Öne Çıkan Ürünler" Foreground="Black" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="20" FontFamily="Trebuchet MS" Margin="262,28,291,24" Width="190"/>
                 <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="616,79,0,0" Width="88" />
+                <ComboBox x:Name="cmbFilter" materialDesign:HintAssist.Hint="RENK" FontSize="15" Foreground="Black" Width="100" Margin="0,42,1167,39" BorderBrush="Black"  Height="32" FontWeight="Bold" SelectionChanged="cmbFilter_SelectionChanged"/>
 
             </Grid>
-            <StackPanel  Height="1600">
+            <StackPanel  Height="1572">
                 <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listdata"  ItemsSource="{Binding myProducts}"  MouseDoubleClick="listdata_MouseDoubleClick"   >
                     <ListBox.ItemTemplate>
                         <DataTemplate >

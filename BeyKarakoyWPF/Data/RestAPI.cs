@@ -18,12 +18,14 @@ namespace BeyKarakoyWPF.Data
         private List<Products> Products;
         private List<Sepett> Sepet;
         private List<Categories> Categories;
+        private List<User> Users;
+
         HttpClient client = new HttpClient();
         public RestAPI()
         {
             client = new HttpClient()
             {
-                BaseAddress = new Uri("https://localhost:44309/")
+                BaseAddress = new Uri("https://localhost:44366/")
             };
             //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             GetData();
@@ -48,6 +50,16 @@ namespace BeyKarakoyWPF.Data
             }
             return Products;
         }
+        public List<User> GetUsers()
+        {
+            HttpResponseMessage response = client.GetAsync("api/users").Result;
+            if (response.IsSuccessStatusCode)
+            {
+                var items = response.Content.ReadAsAsync<IEnumerable<User>>().Result;
+                Users = items as List<User>;
+            }
+            return Users;
+        }
         public List<Sepett> GetSepet()
         {
             HttpResponseMessage response = client.GetAsync("api/sepet").Result;
@@ -62,7 +74,7 @@ namespace BeyKarakoyWPF.Data
         {
             HttpClient client = new HttpClient()
             {
-                BaseAddress = new Uri("https://localhost:44309/")
+                BaseAddress = new Uri("https://localhost:44366/")
             };
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = new HttpResponseMessage();
@@ -70,8 +82,21 @@ namespace BeyKarakoyWPF.Data
             string json = JsonConvert.SerializeObject(sepet, Formatting.Indented);
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
             var result = client.PostAsync("api/sepet", content).Result;
-        } 
-        
+        }
+        public void PostUser(User user)
+        {
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44366/")
+            };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
+
+            string json = JsonConvert.SerializeObject(user, Formatting.Indented);
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            var result = client.PostAsync("api/users", content).Result;
+        }
+
         private void GetData()
         {
             GetProducts();

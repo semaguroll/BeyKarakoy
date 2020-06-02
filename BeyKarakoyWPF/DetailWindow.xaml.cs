@@ -108,7 +108,7 @@ namespace BeyKarakoyWPF
             var data = btn.DataContext as SepetModel;
             HttpClient client = new HttpClient()
             {
-                BaseAddress = new Uri("https://localhost:44309/")
+                BaseAddress = new Uri("https://localhost:44366/")
             };
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = new HttpResponseMessage();
@@ -121,7 +121,7 @@ namespace BeyKarakoyWPF
             lblSepetInfo.Visibility = Visibility.Hidden;
             HttpClient client = new HttpClient()
             {
-                BaseAddress = new Uri("https://localhost:44309/")
+                BaseAddress = new Uri("https://localhost:44366/")
             };
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             HttpResponseMessage response = new HttpResponseMessage();
@@ -177,7 +177,7 @@ namespace BeyKarakoyWPF
                         lblSepetInfo.Content = "Tüm 1 Kısa Kollu Renkli Desenli Gömlek - " + item.Size + " sepetinizde";
                         HttpClient client = new HttpClient()
                         {
-                            BaseAddress = new Uri("https://localhost:44309/")
+                            BaseAddress = new Uri("https://localhost:44366/")
                         };
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                         HttpResponseMessage response = new HttpResponseMessage();

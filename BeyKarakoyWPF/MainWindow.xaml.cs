@@ -1,5 +1,6 @@
 ﻿using BeyKarakoyWPF.Data;
 using BeyKarakoyWPF.Model;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
@@ -17,7 +18,8 @@ namespace BeyKarakoyWPF
       
         BeyKarakoyEntities data = new BeyKarakoyEntities();
         public List<Product> Products;
-        RestAPI api;
+        RestAPI api = new RestAPI();
+        SetProducts set = new SetProducts();
         
 
         public MainWindow()
@@ -31,6 +33,11 @@ namespace BeyKarakoyWPF
             cmbUst.ItemsSource = set.GetAllCategories();
             //var a = set.GetAllCategories();
             listdata.ItemsSource = set.GetAllProducts();
+            List<string> colors = new List<string>()
+           {
+               "Mavi","Beyaz","Bordo","Siyah","Hardal","Açık Kahve","Gri","Pembe","Yeşil"
+           };
+            cmbFilter.ItemsSource = colors;
            
         }
 
@@ -52,8 +59,6 @@ namespace BeyKarakoyWPF
 
         private void btnSepet_Click(object sender, RoutedEventArgs e)
         {
-            //Storyboard sb = Resources["OpenMenu"] as Storyboard;
-            //sb.Begin(slidegrd);
             Storyboard sbrd = Resources["OpenM"] as Storyboard;
             sbrd.Begin(slidegrid);
             
@@ -61,8 +66,6 @@ namespace BeyKarakoyWPF
 
         private void btnCross_Click(object sender, RoutedEventArgs e)
         {
-            //Storyboard sb = Resources["CloseMenu"] as Storyboard;
-            //sb.Begin(slidegrd);
             Storyboard sbrd = Resources["CloseM"] as Storyboard;
             sbrd.Begin(slidegrid);
         }
@@ -106,10 +109,13 @@ namespace BeyKarakoyWPF
             DetailWindow detail = new DetailWindow(mydetails, mydetails.ImageSrc.ToString(), mydetails.NameSrc, mydetails.Show, mydetails.DescriptionSrc, mydetails.InfoSrc, mydetails.PriceSrc);
              //this.Visibility = Visibility.Hidden;
             detail.Show();
+        }
 
-
-
-
-        }        
+        private void cmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var name = cmbFilter.SelectedItem.ToString();
+            var data = set.GetFilterProducts(name);
+            listdata.ItemsSource = data;
+        }
     }
 }

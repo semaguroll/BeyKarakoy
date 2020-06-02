@@ -43,6 +43,36 @@ namespace BeyKarakoyWPF.Data
             }
             return myProducts;
         }
+        public ObservableCollection<ProductModel> GetFilterProducts(string name)
+        {
+            myProducts = new ObservableCollection<ProductModel>();
+            int search;
+            foreach (var item in api.GetProducts())
+            {
+               search= item.Name.IndexOf(name, 0, item.Name.Length);
+                if (search==-1)
+                {
+                    
+                }
+                else
+                {
+                    ProductModel products = new ProductModel()
+                    {
+                        Id = item.Id,
+                        ImageSrc = new Uri(item.Image),
+                        NameSrc = item.Name,
+                        Show = item.Name + " - " + item.Price.ToString(),
+                        DescriptionSrc = item.Description,
+                        InfoSrc = item.Info,
+                        PriceSrc = item.Price
+                    };
+                    myProducts.Add(products);
+                }
+               
+
+            }
+            return myProducts;
+        }
         public ObservableCollection<SepetModel> GetAllSepet()
         {
             mySepet = new ObservableCollection<SepetModel>();
