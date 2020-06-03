@@ -37,42 +37,47 @@
                     <ImageBrush ImageSource="mp1.jpg" Stretch="Uniform"/>
                 </Grid.Background>
                 <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Margin="0,0,-300,10" Background="Gray">
-
-                    <Grid >
-
-
-                        <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click">
+                    <StackPanel >
+                        <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click" Grid.ColumnSpan="2">
                             <materialDesign:PackIcon Kind="Clear"/>
                         </Button>
-                        <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,73,0"/>
-                        <!--<Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" Margin="0,133,0,305"></Label>-->
-                        <StackPanel>
-                            <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listsepet"  ItemsSource="{Binding myProducts}"  MouseDoubleClick="listdata_MouseDoubleClick"   >
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate >
-                                        <Grid Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" >
-                                            <Image Height="250" 
-                                               Width="200"
-                                               HorizontalAlignment="Center"
-                                               VerticalAlignment="Top"
-                                                Margin="20"
-                                               Source="{Binding ImageSrc}"  />
-                                            <Label Content="{Binding Show}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"  />
-                                            <Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>
-                                        </Grid>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                                <ListBox.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <UniformGrid Columns="3"/>
-                                    </ItemsPanelTemplate>
-                                </ListBox.ItemsPanel>
-                            </ListBox>
-                        </StackPanel>
-                    </Grid>
-
-
-
+                        <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,41,0"/>
+                        <!--<Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" VerticalAlignment="Top" Margin="0,133,0,305"></Label>-->
+                        <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listsepet"  ItemsSource="{Binding myProducts}" Grid.ColumnSpan="2">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="250" >
+                                        <Image Height="150" 
+                                               Width="100"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"                                                
+                                               Source="{Binding Image}"  />
+                                        <Label Content="{Binding Name}" Width="100" VerticalAlignment="Top"  HorizontalAlignment="Right"/>
+                                        <Label Content="{Binding Price}" Width="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20" />
+                                        <Label Content="{Binding Size}" Width="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50,20" />
+                                        <Border BorderBrush="LightGray" BorderThickness="1" Height="18" Width="53" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50" >
+                                            <StackPanel  Height="17" Width="53" Orientation="Horizontal" >
+                                                <Button x:Name="cmdUp" Width="15" Padding="0" Height="15" Foreground="LightGray" Background="{x:Null}" BorderBrush="{x:Null}"  Click="cmdUp_Click">
+                                                    <materialDesign:PackIcon Kind="Plus"/>
+                                                </Button>
+                                                <TextBox x:Name="txtNum" Width="15" Height="15" Background="Transparent" Margin="5,0,0,0" Foreground="White" />
+                                                <Button x:Name="cmdDown" Width="15" Height="15" Background="{x:Null}" Foreground="LightGray" Padding="0" BorderBrush="{x:Null}" Click="cmdDown_Click" >
+                                                    <materialDesign:PackIcon Kind="Minus"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </Border>
+                                        <!--<Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>-->
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="1"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                        <Button x:Name="btnFinish" Content="Alışverişi Tamamla" Background="Black" BorderBrush="Black" Foreground="White" Click="btnFinish_Click"  />
+                    </StackPanel>
                 </Grid>
                 <Grid Height="127" Width="1352" HorizontalAlignment="Left" VerticalAlignment="Top" >
 

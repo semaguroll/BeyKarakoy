@@ -1,7 +1,10 @@
 ﻿using BeyKarakoyWPF.Data;
 using BeyKarakoyWPF.Model;
 using DocumentFormat.OpenXml.Office2010.ExcelAc;
+using System;
 using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -15,16 +18,16 @@ namespace BeyKarakoyWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-      
+
         BeyKarakoyEntities data = new BeyKarakoyEntities();
         public List<Product> Products;
         RestAPI api = new RestAPI();
         SetProducts set = new SetProducts();
-        
+
 
         public MainWindow()
         {
-            InitializeComponent();           
+            InitializeComponent();
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -38,13 +41,12 @@ namespace BeyKarakoyWPF
                "Mavi","Beyaz","Bordo","Siyah","Hardal","Açık Kahve","Gri","Pembe","Yeşil"
            };
             cmbFilter.ItemsSource = colors;
-           
+            listsepet.ItemsSource = set.GetAllSepet();
         }
 
-      
+
         private void cmbUst_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             TshirtWindow Tshirt = new TshirtWindow();
 
             if (cmbUst.SelectedItem.ToString() == "T-shirt")
@@ -52,16 +54,12 @@ namespace BeyKarakoyWPF
                 this.Visibility = Visibility.Hidden;
                 Tshirt.Show();
             }
-
         }
-
-
-
         private void btnSepet_Click(object sender, RoutedEventArgs e)
         {
             Storyboard sbrd = Resources["OpenM"] as Storyboard;
             sbrd.Begin(slidegrid);
-            
+
         }
 
         private void btnCross_Click(object sender, RoutedEventArgs e)
@@ -97,25 +95,58 @@ namespace BeyKarakoyWPF
         {
             cmbUst.Foreground = Brushes.Black;
         }
-
         private void cmbUst_MouseLeave(object sender, MouseEventArgs e)
         {
             cmbUst.Foreground = Brushes.White;
         }
-
         private void listdata_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {  
+        {
             var mydetails = listdata.SelectedItem as ProductModel;
             DetailWindow detail = new DetailWindow(mydetails, mydetails.ImageSrc.ToString(), mydetails.NameSrc, mydetails.Show, mydetails.DescriptionSrc, mydetails.InfoSrc, mydetails.PriceSrc);
-             //this.Visibility = Visibility.Hidden;
+            //this.Visibility = Visibility.Hidden;
             detail.Show();
         }
-
         private void cmbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var name = cmbFilter.SelectedItem.ToString();
             var data = set.GetFilterProducts(name);
             listdata.ItemsSource = data;
         }
+        private void cmdUp_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = e.OriginalSource as Button;
+            var data = btn.DataContext as SepetModel;
+        }
+        private void cmdDown_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = e.OriginalSource as Button;
+            var data = btn.DataContext as SepetModel;
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44366/")
+            };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
+            string deleteUri = "api/sepet/" + data.Id.ToString();
+            var result = client.DeleteAsync(deleteUri).Result;
+            listsepet.ItemsSource = set.GetAllSepet();
+        }
+        private void btnFinish_Click(object sender, RoutedEventArgs e)
+        {
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44366/")
+            };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
+            var data = set.GetAllSepet();
+            foreach (var item in data)
+            {
+                string deleteUri = "api/sepet/" + item.Id.ToString();
+                var result = client.DeleteAsync(deleteUri).Result;
+            }
+            listsepet.ItemsSource = set.GetAllSepet();
+        }
+
     }
 }
