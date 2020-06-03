@@ -102,6 +102,7 @@ namespace BeyKarakoyRestAPI.Persistance.Context
             builder.Entity<User>().Property(p => p.Surname).IsRequired().HasMaxLength(50);
             builder.Entity<User>().Property(p => p.Mail).IsRequired().HasMaxLength(200);
             builder.Entity<User>().Property(p => p.Password).IsRequired().HasMaxLength(20);
+            builder.Entity<User>().Property(p => p.Lgn).IsRequired().HasMaxLength(10);
 
         }
     }

@@ -4,14 +4,16 @@ using BeyKarakoyRestAPI.Persistance.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BeyKarakoyRestAPI.Migrations
 {
     [DbContext(typeof(BeyKarakoyContext))]
-    partial class BeyKarakoyContextModelSnapshot : ModelSnapshot
+    [Migration("20200603170035_UserMig")]
+    partial class UserMig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

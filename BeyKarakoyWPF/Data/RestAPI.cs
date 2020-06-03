@@ -83,6 +83,30 @@ namespace BeyKarakoyWPF.Data
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
             var result = client.PostAsync("api/sepet", content).Result;
         }
+
+        public void DeleteSepetItem(int id)
+        {
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44366/")
+            };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
+            string deleteUri = "api/sepet/" + id.ToString();
+            var result = client.DeleteAsync(deleteUri).Result;
+        }
+        public void PutUser( UsersModel user,int id)
+        {
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44366/")
+            };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            string json = JsonConvert.SerializeObject(user, Formatting.Indented);
+            HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
+            string putUri = "api/users/" + id.ToString();
+            var result = client.PutAsync(putUri, content).Result;
+        }
         public void PostUser(User user)
         {
             HttpClient client = new HttpClient()
@@ -96,6 +120,18 @@ namespace BeyKarakoyWPF.Data
             HttpContent content = new StringContent(json, Encoding.UTF8, "application/json");
             var result = client.PostAsync("api/users", content).Result;
         }
+        public void DeleteOneUser(int id)
+        {
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44366/")
+            };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
+            string deleteUri = "api/users/" + id.ToString();
+            var result = client.DeleteAsync(deleteUri).Result;
+        }
+            
 
         private void GetData()
         {

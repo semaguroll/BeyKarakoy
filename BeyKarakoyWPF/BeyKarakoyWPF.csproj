@@ -153,6 +153,7 @@
     <Compile Include="Model\Products.cs" />
     <Compile Include="Model\SepetModel.cs" />
     <Compile Include="Model\Sepett.cs" />
+    <Compile Include="Model\StockUpdate.cs" />
     <Compile Include="Model\Users.cs" />
     <Compile Include="Model\UsersModel.cs" />
     <Compile Include="NewUser.xaml.cs">

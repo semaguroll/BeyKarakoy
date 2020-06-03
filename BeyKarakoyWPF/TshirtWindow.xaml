@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BeyKarakoyWPF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="TshirtWindow" Height="2222.78" Width="1380" Loaded="Window_Loaded">
+        Title="TshirtWindow" Height="3101.78" Width="1380" Loaded="Window_Loaded">
     <Window.Resources>
         <Storyboard x:Key="CloseM">
             <ThicknessAnimation Storyboard.TargetProperty="Margin" From="-300,0,0,0" To="0,0,0,0" DecelerationRatio="0.9" Duration="0:0:0.5"/>
@@ -92,20 +92,20 @@
 
                 </Grid>
 
-                <Grid Margin="0,210,0,0" Height="1600" >
-                    <StackPanel x:Name="prodPanel"  HorizontalAlignment="Center" Width="1000" Height="1600" Margin="161,0,141,0" >
+                <Grid Margin="0,210,0,0" Height="2400" >
+                    <StackPanel x:Name="prodPanel"  HorizontalAlignment="Center" Width="1000" Height="2400" Margin="161,0,141,0" >
                         <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listdata"  ItemsSource="{Binding myProducts}"  MouseDoubleClick="listdata_MouseDoubleClick"   >
                             <ListBox.ItemTemplate>
                                 <DataTemplate >
-                                    <StackPanel Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" >
+                                    <StackPanel Height="400" Width="333" VerticalAlignment="Center" HorizontalAlignment="Center" >
                                         <Image Height="250" 
                                                Width="200"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Top"
                                                 Margin="20"
                                                Source="{Binding ImageSrc}"  />
-                                        <Label Content="{Binding Show}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"  />
-                                        <Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>
+                                        <Label Content="{Binding Show}" HorizontalAlignment="Center"  />
+                                        <Label Content="BEY KARAKÖY" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
@@ -125,7 +125,7 @@
 
                 </Grid>
             </Grid>
-
+            <Grid Height="50"/>
             <Grid Height="124" Background="#FFDEDEDE">
                 <Label HorizontalAlignment="Center" VerticalAlignment="Center" Width="384"  Height="50" Background="White"/>
                 <TextBox HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="E-posta listemize üye olun." VerticalAlignment="Center" Width="280" Margin="196,48,267,46" TextDecorations="{x:Null}" FontFamily="Gabriola" FontSize="14" CaretBrush="Black"/>

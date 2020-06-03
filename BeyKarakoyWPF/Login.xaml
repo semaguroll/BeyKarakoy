@@ -11,16 +11,51 @@
         <StackPanel>
             <Grid Name="slidegrid" Height="518">
                 <Grid Name="slidegrd" HorizontalAlignment="Right" Width="300" Height="500" Margin="0,0,-300,10" Background="Gray">
-
-                    <Grid >
-
-
-                        <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click">
+                    <!--<StackPanel >
+                        <Button Name="btnCross" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="48" Margin="0,10,10,0" Click="btnCross_Click" Grid.ColumnSpan="2">
                             <materialDesign:PackIcon Kind="Clear"/>
                         </Button>
-                        <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,73,0"/>
-                        <Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" Margin="0,133,0,305"></Label>
-                    </Grid>
+                        <Label Content="Alışveriş Sepetiniz" Height="68" Foreground="White" VerticalAlignment="Top" FontSize="16" FontFamily="Yu Gothic UI Semibold" Margin="0,21,41,0"/>
+                        -->
+                    <!--<Label Content="Henüz alışveriş yapmadınız" Height="56" Foreground="White" VerticalAlignment="Top" Margin="0,133,0,305"></Label>-->
+                    <!--
+                        <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listsepet"  ItemsSource="{Binding myProducts}" Grid.ColumnSpan="2">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid Width="250" >
+                                        <Image Height="150" 
+                                               Width="100"
+                                               HorizontalAlignment="Left"
+                                               VerticalAlignment="Top"                                                
+                                               Source="{Binding Image}"  />
+                                        <Label Content="{Binding Name}" Width="100" VerticalAlignment="Top"  HorizontalAlignment="Right"/>
+                                        <Label Content="{Binding Price}" Width="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="20" />
+                                        <Label Content="{Binding Size}" Width="50"  VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50,20" />
+                                        <Border BorderBrush="LightGray" BorderThickness="1" Height="18" Width="53" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="50" >
+                                            <StackPanel  Height="17" Width="53" Orientation="Horizontal" >
+                                                <Button x:Name="cmdUp" Width="15" Padding="0" Height="15" Foreground="LightGray" Background="{x:Null}" BorderBrush="{x:Null}"  Click="cmdUp_Click">
+                                                    <materialDesign:PackIcon Kind="Plus"/>
+                                                </Button>
+                                                <TextBox x:Name="txtNum" Width="15" Height="15" Background="Transparent" Margin="5,0,0,0" Foreground="White" />
+                                                <Button x:Name="cmdDown" Width="15" Height="15" Background="{x:Null}" Foreground="LightGray" Padding="0" BorderBrush="{x:Null}" Click="cmdDown_Click" >
+                                                    <materialDesign:PackIcon Kind="Minus"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </Border>
+                                        -->
+                    <!--<Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>-->
+                    <!--
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <UniformGrid Columns="1"/>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                        </ListBox>
+                        <Button x:Name="btnFinish" Content="Alışverişi Tamamla" Background="Black" BorderBrush="Black" Foreground="White" Click="btnFinish_Click"  />
+                    </StackPanel>-->
 
 
 
@@ -54,17 +89,19 @@
 
                 </Grid>
 
-                <Grid HorizontalAlignment="Center" Height="313" Width="340" Margin="506,205,509,0">
-                    <TextBox Name="txtMail" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,32,0,0" TextWrapping="Wrap" Text="  E-posta" VerticalAlignment="Top" Width="173"/>
-                    <TextBox Name="txtSifre" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="74,70,0,0" TextWrapping="Wrap" Text="  Şifre" VerticalAlignment="Top" Width="173"/>
-                    <Button Name="btnLogin" Content="GİRİŞ" Background="Black" BorderBrush="Black" HorizontalAlignment="Left" Margin="74,123,0,0" VerticalAlignment="Top" Width="173" Height="29" Click="btnLogin_Click" Grid.RowSpan="2"/>
-                    <Button Name="btnNewUser" Content="Yeni Üyelik" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,175,125,110" FontFamily="Sitka Heading" Click="btnNewUser_Click" />
-                    <Button Name="btnMainPage" Content="Ana Sayfa" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="103,208,125,77" FontFamily="Sitka Heading" Click="btnMainPage_Click"/>
-                    <Button  Content="Şifreyi Unutum!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="131" Height="28" Margin="96,236,113,49" FontFamily="Sitka Heading" RenderTransformOrigin="0.5,2.071"/>
+                <Grid HorizontalAlignment="Center" Height="313" Width="386" Margin="506,206,463,-1">
+                    <TextBox Name="txtMail" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="108,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173"/>
+                    <TextBox Name="txtSifre" HorizontalAlignment="Left" Background="#FFD1D1D1" BorderBrush="{x:Null}" Foreground="Gray" Height="30" Margin="108,73,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="173"/>
+                    <Button Name="btnLogin" Content="GİRİŞ" Background="Black" BorderBrush="Black" HorizontalAlignment="Left" Margin="108,122,0,0" VerticalAlignment="Top" Width="173" Height="29" Click="btnLogin_Click"/>
+                    <Button Name="btnNewUser" Content="Yeni Üyelik" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="144,175,130,110" FontFamily="Sitka Heading" Click="btnNewUser_Click" />
+                    <Button Name="btnMainPage" Content="Ana Sayfa" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="112" Height="28" Margin="142,206,132,79" FontFamily="Sitka Heading" Click="btnMainPage_Click"/>
+                    <Button  Content="Şifreyi Unutum!" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="Black" HorizontalAlignment="Center"  Width="131" Height="28" Margin="137,236,118,49" FontFamily="Sitka Heading" RenderTransformOrigin="0.5,2.071"/>
+                    <Label Content="E-Posta" HorizontalAlignment="Left" Margin="34,38,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Şifre" HorizontalAlignment="Left" Margin="34,77,0,0" VerticalAlignment="Top"/>
                 </Grid>
-                <StackPanel Name="pnlUser" Visibility="Hidden" Background="White" Margin="524,205,491,151" Height="162" Width="340">
+                <StackPanel Name="pnlUser" Visibility="Visible" Background="White" Margin="522,205,493,151" Height="162" Width="340">
                     <Label Name="lblUser" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="92"/>
-                    <Button Name="btnLogout" Content="ÇIKIŞ YAP" Click="btnLogout_Click" Width="150" Background="Black" BorderBrush="Black"/>
+                    <Button Name="btnLogout" Content="ÇIKIŞ YAP" HorizontalAlignment="Center" Click="btnLogout_Click" Width="150" Background="Black" BorderBrush="Black" Margin="98,0,92,0"/>
                 </StackPanel>
             </Grid>
             <Grid Height="124" Background="#FFDEDEDE">

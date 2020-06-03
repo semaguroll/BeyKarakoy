@@ -100,8 +100,8 @@
 
                         <Image  x:Name="img" Width="400" Height="500" Margin="80,105,894,486" />
                         <Label Content="BEY KARAKÖY"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="18" Margin="854,118,370,923" />
-                        <Label   Height="144" Width="567" x:Name="lblName" FontSize="24" Margin="644,173,163,774"/>
-                        <Label   Foreground="Black" Height="50" Width="150" x:Name="lblPrice" Margin="879,514,345,527"/>
+                        <Label   Height="144" Width="567" x:Name="lblName" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="24" Margin="653,173,135,774"/>
+                        <Label   Foreground="Black" Height="50" Width="150" HorizontalContentAlignment="Center" x:Name="lblPrice" Margin="879,514,345,527"/>
                         <Label Content="___________________________________" FontSize="18" Width="100" Height="37"  Margin="879,317,395,737"/>
                         <Label Content="Size" FontSize="18" Width="100" Height="31" HorizontalContentAlignment="Center" Margin="879,359,395,701" RenderTransformOrigin="4.849,-6.817"/>
                         <Grid Height="100" Width="500" Margin="695,395,179,596">
@@ -111,15 +111,50 @@
                             <Button x:Name="btnXL"  Content="XL" Background="White" Foreground="Black"  BorderBrush="White" Height="50" Width="50" Margin="299,25,151,25" Click="btnXL_Click"/>
                             <Button x:Name="btnXXL"  Content="XXL" Background="White" Foreground="Black" BorderBrush="White"  Height="50" Margin="394,25,40,25" Click="btnXXL_Click"/>
                         </Grid>
-                        <Button Content="SEPETE EKLE" Background="Black" BorderBrush="Black" Foreground="White" Height="Auto" Margin="854,574,295,455"  x:Name="btnId" Click="btnId_Click"/>
-                        <Label   Height="50" Width="500" x:Name="lblSepetInfo" Visibility="Hidden" Margin="726,664,129,397"/>
-                        <Label   Height="100" Width="500" x:Name="lblDescription" Margin="726,720,129,271"/>
-                        <Label  Height="100" Width="500" HorizontalAlignment="Center"  VerticalAlignment="Center" x:Name="lblInfo" Margin="726,855,129,136"/>
+                        <Button Content="SEPETE EKLE" Background="Black" BorderBrush="Black" Foreground="White" Height="Auto" Margin="850,576,299,453"  x:Name="btnId" Click="btnId_Click"/>
+                        <Label   Height="50" Width="500" Foreground="DarkRed" HorizontalContentAlignment="Center" x:Name="lblSepetInfo" Visibility="Hidden" Margin="726,664,129,397"/>
+                        <Label   Height="100" Width="500" x:Name="lblDescription" HorizontalContentAlignment="Center" Margin="726,720,129,271"/>
+                        <Label  Height="100" Width="500" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" x:Name="lblInfo" Margin="726,855,129,136"/>
                     </Grid>
                 </Grid>
             </Grid>
 
+            <Grid Height="124" Background="#FFDEDEDE">
+                <Label HorizontalAlignment="Center" VerticalAlignment="Center" Width="384"  Height="50" Background="White"/>
+                <TextBox HorizontalAlignment="Center" Height="30" TextWrapping="Wrap" Text="E-posta listemize üye olun." VerticalAlignment="Center" Width="280" Margin="196,48,267,46" TextDecorations="{x:Null}" FontFamily="Gabriola" FontSize="14" CaretBrush="Black"/>
+                <Button x:Name="btnAboneOl" Content="Abone Ol" HorizontalAlignment="Center" Margin="791,48,490,0" VerticalAlignment="Top" Width="74" Height="30" Background="Black" BorderBrush="Black" FontSize="10" FontFamily="Segoe UI Light"/>
+            </Grid>
+            <Grid Height="204" Width="970">
+                <Label Content="___________________________________" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="341,10,0,0" Width="87"/>
+                <Button Content="Hakkımızda" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="33,54,0,0" VerticalAlignment="Top" Width="96" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Değişim Koşulları" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="33,80,0,0" VerticalAlignment="Top" Width="128" FontFamily="Sitka Heading" Height="31"/>
+                <Button Content="Gizlilik" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="20,116,0,0" VerticalAlignment="Top" Width="96" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Terms and Conditions" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="33,142,0,0" VerticalAlignment="Top" Width="144" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Blog" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="20,168,0,0" VerticalAlignment="Top" Width="83" FontFamily="Sitka Heading" Height="26" RenderTransformOrigin="0.5,0.5"/>
 
+                <Button Content="Facebook" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="302,54,0,0" VerticalAlignment="Top" Width="87" FontFamily="Sitka Heading" Height="31"></Button>
+                <Button Content=  "Twitter" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="293,90,0,0" VerticalAlignment="Top" Width="96" FontFamily="Sitka Heading" Height="21"/>
+                <Button Content="Instagram " FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="275,116,0,0" VerticalAlignment="Top" Width="144" FontFamily="Sitka Heading" Height="25"/>
+                <Button Content="Google Plus+" FontSize="12" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="Black" HorizontalAlignment="Left" Margin="293,142,0,0" VerticalAlignment="Top" Width="110" FontFamily="Sitka Heading" Height="26" RenderTransformOrigin="0.5,0.5"/>
+                <Label Content="© 2020, beykarakoy Shopify tarafından desteklenir" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="604,72,0,0" Height="31" Width="284"/>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="545,139,0,0"/>
+
+
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,142,0,0">
+                    <materialDesign:PackIcon Kind="GooglePlus"/>
+                </Label>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,118,0,0">
+                    <materialDesign:PackIcon Kind="TwitterBox"/>
+                </Label>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,89,0,0">
+                    <materialDesign:PackIcon Kind="Twitter"/>
+                </Label>
+                <Label  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="293,54,0,0">
+                    <materialDesign:PackIcon Kind="Facebook"/>
+                </Label>
+
+
+            </Grid>
 
 
 

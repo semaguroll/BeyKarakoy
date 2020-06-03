@@ -102,30 +102,12 @@ namespace BeyKarakoyWPF
         {
             Button btn = e.OriginalSource as Button;
             var data = btn.DataContext as SepetModel;
-            HttpClient client = new HttpClient()
-            {
-                BaseAddress = new Uri("https://localhost:44366/")
-            };
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = new HttpResponseMessage();
-            string deleteUri = "api/sepet/" + data.Id.ToString();
-            var result = client.DeleteAsync(deleteUri).Result;
+            api.DeleteSepetItem(data.Id);
             listsepet.ItemsSource = set.GetAllSepet();
         }
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
-            HttpClient client = new HttpClient()
-            {
-                BaseAddress = new Uri("https://localhost:44366/")
-            };
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = new HttpResponseMessage();
-            var data = set.GetAllSepet();
-            foreach (var item in data)
-            {
-                string deleteUri = "api/sepet/" + item.Id.ToString();
-                var result = client.DeleteAsync(deleteUri).Result;
-            }
+            set.DeleteAllSepet();
             listsepet.ItemsSource = set.GetAllSepet();
         }
     }

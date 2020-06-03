@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -11,14 +13,14 @@ namespace BeyKarakoyWPF.Data
 {
     public class SetProducts : BindableObject
     {
-        
+
         RestAPI api;
         ObservableCollection<ProductModel> myProducts;
         ObservableCollection<SepetModel> mySepet;
         ObservableCollection<CategoryModel> myCategories;
         //ObservableCollection<SepetModel> mySepet;
         public SetProducts()
-        {            
+        {
             api = new RestAPI();
         }
 
@@ -49,10 +51,10 @@ namespace BeyKarakoyWPF.Data
             int search;
             foreach (var item in api.GetProducts())
             {
-               search= item.Name.IndexOf(name, 0, item.Name.Length);
-                if (search==-1)
+                search = item.Name.IndexOf(name, 0, item.Name.Length);
+                if (search == -1)
                 {
-                    
+
                 }
                 else
                 {
@@ -68,7 +70,7 @@ namespace BeyKarakoyWPF.Data
                     };
                     myProducts.Add(products);
                 }
-               
+
 
             }
             return myProducts;
@@ -100,14 +102,29 @@ namespace BeyKarakoyWPF.Data
             {
                 CategoryModel categories = new CategoryModel()
                 {
-                    IdSrc = item.Id,                   
-                    NameSrc = item.Name                   
+                    IdSrc = item.Id,
+                    NameSrc = item.Name
                 };
                 myCategories.Add(categories);
 
             }
             return myCategories;
         }
-       
+        public void DeleteAllSepet()
+        {
+            HttpClient client = new HttpClient()
+            {
+                BaseAddress = new Uri("https://localhost:44366/")
+            };
+            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            HttpResponseMessage response = new HttpResponseMessage();
+            var data = GetAllSepet();
+            foreach (var item in data)
+            {
+                string deleteUri = "api/sepet/" + item.Id.ToString();
+                var result = client.DeleteAsync(deleteUri).Result;
+            }
+        }
+
     }
 }

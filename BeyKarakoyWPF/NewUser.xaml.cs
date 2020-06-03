@@ -25,6 +25,7 @@ namespace BeyKarakoyWPF
     public partial class NewUser : Window
     {
         BeyKarakoyEntities data = new BeyKarakoyEntities();
+        SetProducts set = new SetProducts();
         RestAPI api = new RestAPI();
         public NewUser()
         {
@@ -51,8 +52,9 @@ namespace BeyKarakoyWPF
         }
         private void newUserWindow_Loaded(object sender, RoutedEventArgs e)
         {
-                var cat =api.GetCategories();
-                cmbUst.ItemsSource = cat;
+            SetProducts set = new SetProducts();
+            cmbUst.ItemsSource = set.GetAllCategories();
+            listsepet.ItemsSource = set.GetAllSepet();
         }
         private void btnSignup_Click(object sender, RoutedEventArgs e)
         {
@@ -75,7 +77,9 @@ namespace BeyKarakoyWPF
                     Name = txtName.Text,
                     Surname = txtSurname.Text,
                     Mail = txtMail.Text,
-                    Password = txtPassword.Text
+                    Password = txtPassword.Text,
+                    Lgn = false
+                    
                 };
                 var data = api.GetUsers();
                 foreach (var item in data)
@@ -83,14 +87,8 @@ namespace BeyKarakoyWPF
                     if (item.Name==txtName.Text&&item.Surname==txtSurname.Text&&item.Mail==txtMail.Text&&item.Password==txtPassword.Text)
                     {
                         lblError.Content = "Böyle bir kayıt bulunmaktadır.Lütfen giriş yapınız";
-                        HttpClient client = new HttpClient()
-                        {
-                            BaseAddress = new Uri("https://localhost:44366/")
-                        };
-                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        HttpResponseMessage response = new HttpResponseMessage();
-                        string deleteUri = "api/users/" + item.Id.ToString();
-                        var result = client.DeleteAsync(deleteUri).Result;                       
+                        api.DeleteOneUser(item.Id);                      
+                                             
                     }                    
                 }
                 api.PostUser(user);
@@ -139,6 +137,23 @@ namespace BeyKarakoyWPF
             MainWindow main = new MainWindow();
             this.Visibility = Visibility.Hidden;
             main.Show();
+        }
+        private void cmdUp_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = e.OriginalSource as Button;
+            var data = btn.DataContext as SepetModel;
+        }
+        private void cmdDown_Click(object sender, RoutedEventArgs e)
+        {
+            Button btn = e.OriginalSource as Button;
+            var data = btn.DataContext as SepetModel;
+            api.DeleteSepetItem(data.Id);
+            listsepet.ItemsSource = set.GetAllSepet();
+        }
+        private void btnFinish_Click(object sender, RoutedEventArgs e)
+        {
+            set.DeleteAllSepet();
+            listsepet.ItemsSource = set.GetAllSepet();
         }
     }
 }

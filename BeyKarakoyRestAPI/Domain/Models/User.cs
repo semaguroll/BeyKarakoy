@@ -12,5 +12,6 @@ namespace BeyKarakoyRestAPI.Domain.Models
         public string Surname { get; set; }
         public string Mail { get; set; }
         public string Password { get; set; }
+        public bool Lgn { get; set; }
     }
 }

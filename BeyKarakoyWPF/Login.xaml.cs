@@ -1,9 +1,11 @@
 ﻿using BeyKarakoyWPF.Data;
 using BeyKarakoyWPF.Model;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,6 +26,7 @@ namespace BeyKarakoyWPF
     public partial class Login : Window
     {
         BeyKarakoyEntities data = new BeyKarakoyEntities();
+        SetProducts set = new SetProducts();
         RestAPI api = new RestAPI();
         public bool login { get; set; }
         public Login()
@@ -68,16 +71,21 @@ namespace BeyKarakoyWPF
             main.Show();
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-             var cat =api.GetCategories();           
-             cmbUst.ItemsSource = cat;
-            if (login == true)
+        {           
+            SetProducts set = new SetProducts();
+            cmbUst.ItemsSource = set.GetAllCategories();
+            //listsepet.ItemsSource = set.GetAllSepet();
+            foreach (var item in api.GetUsers())
             {
-                pnlUser.Visibility = Visibility.Visible;
-            }
-            else if (login == false)
-            {
-                pnlUser.Visibility = Visibility.Hidden;
+                if(item.Lgn==true)
+                {
+                    pnlUser.Visibility = Visibility.Visible;
+                    lblUser.Content = "Hoşgeldin " + item.Name + item.Surname;
+                }
+                else if (item.Lgn == false)
+                {
+                    pnlUser.Visibility = Visibility.Hidden;
+                }
             }
         }
         private void btnSearchPage_Click(object sender, RoutedEventArgs e)
@@ -102,18 +110,76 @@ namespace BeyKarakoyWPF
                 {
                     pnlUser.Visibility = Visibility.Visible;
                     lblUser.Content ="Hoşgeldin " + item.Name + item.Surname;
-                    login = true;
+                   
+                    UsersModel user = new UsersModel()
+                    {
+                        Id=item.Id,
+                        Name = item.Name,
+                        Surname = item.Surname,
+                        Mail = item.Mail,
+                        Password = item.Password,
+                        Lgn = true
+                    };
+                    api.PutUser(user, item.Id);
                 }
             }
         }
-
         private void btnLogout_Click(object sender, RoutedEventArgs e)
         {
-            pnlUser.Visibility = Visibility.Hidden;
-            txtMail.Clear();
-            txtSifre.Clear();
-            login = false;
+            pnlUser.Visibility = Visibility.Hidden;           
+            foreach (var item in api.GetUsers())
+            {
+                if (item.Lgn==true)
+                {
+                    UsersModel user = new UsersModel()
+                    {
+                        Id = item.Id,
+                        Name = item.Name,
+                        Surname = item.Surname,
+                        Mail = item.Mail,
+                        Password = item.Password,
+                        Lgn = false
+                    };
+                    api.PutUser(user, item.Id);
+                }                 
+                
+            }
         }
+        //private void cmdUp_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Button btn = e.OriginalSource as Button;
+        //    var data = btn.DataContext as SepetModel;
+        //}
+        //private void cmdDown_Click(object sender, RoutedEventArgs e)
+        //{
+        //    Button btn = e.OriginalSource as Button;
+        //    var data = btn.DataContext as SepetModel;
+        //    HttpClient client = new HttpClient()
+        //    {
+        //        BaseAddress = new Uri("https://localhost:44366/")
+        //    };
+        //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    HttpResponseMessage response = new HttpResponseMessage();
+        //    string deleteUri = "api/sepet/" + data.Id.ToString();
+        //    var result = client.DeleteAsync(deleteUri).Result;
+        //    listsepet.ItemsSource = set.GetAllSepet();
+        //}
+        //private void btnFinish_Click(object sender, RoutedEventArgs e)
+        //{
+        //    HttpClient client = new HttpClient()
+        //    {
+        //        BaseAddress = new Uri("https://localhost:44366/")
+        //    };
+        //    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //    HttpResponseMessage response = new HttpResponseMessage();
+        //    var data = set.GetAllSepet();
+        //    foreach (var item in data)
+        //    {
+        //        string deleteUri = "api/sepet/" + item.Id.ToString();
+        //        var result = client.DeleteAsync(deleteUri).Result;
+        //    }
+        //    listsepet.ItemsSource = set.GetAllSepet();
+        //}
     }
 
 }

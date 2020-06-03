@@ -119,15 +119,15 @@
                 <ListBox ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  x:Name="listdata"  ItemsSource="{Binding myProducts}"  MouseDoubleClick="listdata_MouseDoubleClick"   >
                     <ListBox.ItemTemplate>
                         <DataTemplate >
-                            <StackPanel Height="400" VerticalAlignment="Center" HorizontalAlignment="Center" >                                
+                            <StackPanel Height="400" Width="450" VerticalAlignment="Center" HorizontalAlignment="Center" >                                
                                 <Image Height="250" 
                                                Width="200"
                                                HorizontalAlignment="Center"
                                                VerticalAlignment="Top"
                                                 Margin="20"
                                                Source="{Binding ImageSrc}"  />
-                                <Label Content="{Binding Show}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="20"  />
-                                <Label Content="BEY KARAKÖY" HorizontalAlignment="Center" VerticalAlignment="Bottom"  Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" Margin="30"/>
+                                <Label Content="{Binding Show}" HorizontalAlignment="Center"  />
+                                <Label Content="BEY KARAKÖY" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="50" Width="150" FontFamily="Microsoft YaHei Light" FontSize="15" />
                             </StackPanel>    
                         </DataTemplate>
                     </ListBox.ItemTemplate>

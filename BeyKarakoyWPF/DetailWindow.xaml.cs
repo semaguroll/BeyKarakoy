@@ -106,31 +106,13 @@ namespace BeyKarakoyWPF
             lblSepetInfo.Visibility = Visibility.Hidden;
             Button btn = e.OriginalSource as Button;
             var data = btn.DataContext as SepetModel;
-            HttpClient client = new HttpClient()
-            {
-                BaseAddress = new Uri("https://localhost:44366/")
-            };
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = new HttpResponseMessage();
-            string deleteUri = "api/sepet/" + data.Id.ToString();
-            var result = client.DeleteAsync(deleteUri).Result;
+            api.DeleteSepetItem(data.Id);
             listsepet.ItemsSource = set.GetAllSepet();
         }
         private void btnFinish_Click(object sender, RoutedEventArgs e)
         {
             lblSepetInfo.Visibility = Visibility.Hidden;
-            HttpClient client = new HttpClient()
-            {
-                BaseAddress = new Uri("https://localhost:44366/")
-            };
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = new HttpResponseMessage();
-            var data = set.GetAllSepet();
-            foreach (var item in data)
-            {
-                string deleteUri = "api/sepet/" + item.Id.ToString();
-                var result = client.DeleteAsync(deleteUri).Result;
-            }
+            set.DeleteAllSepet();
             listsepet.ItemsSource = set.GetAllSepet();
         }
         private void Brush(Button btn1, Button btn2, Button btn3, Button btn4)
@@ -140,18 +122,7 @@ namespace BeyKarakoyWPF
             btn3.BorderBrush = Brushes.White;
             btn4.BorderBrush = Brushes.White;
         }
-        //private string BtnText(Button btn)
-        //{
-        //    string text;
-        //    string btntxt = btn.Content.ToString();
-        //    if (btn.BorderBrush == Brushes.Black)
-        //    {
-        //        text = "Tüm 1 Kısa Kollu Renkli Desenli Gömlek - " + btntxt + " sepetinizde";
-        //    }
-
-        //        return text;
-        //}
-
+      
         private void BrushClick(Button btn)
         {
         
@@ -175,14 +146,7 @@ namespace BeyKarakoyWPF
                     {
                         lblSepetInfo.Visibility = Visibility.Visible;
                         lblSepetInfo.Content = "Tüm 1 Kısa Kollu Renkli Desenli Gömlek - " + item.Size + " sepetinizde";
-                        HttpClient client = new HttpClient()
-                        {
-                            BaseAddress = new Uri("https://localhost:44366/")
-                        };
-                        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        HttpResponseMessage response = new HttpResponseMessage();
-                        string deleteUri = "api/sepet/" + item.Id.ToString();
-                        var result = client.DeleteAsync(deleteUri).Result;
+                        api.DeleteSepetItem(item.Id);
 
                     }
                 }
